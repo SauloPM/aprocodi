@@ -97,7 +97,7 @@ body {
             outline: none;
             box-shadow:  5px  5px  10px rgba(200,200,215),
                         -5px -5px  10px rgb(255,255,255);
-            margin-top: 25px;
+            margin: 25px 0;
             width: 100%;
             max-width: 400px;
             height: 55px;
@@ -111,6 +111,33 @@ body {
             &:active {
                 box-shadow: inset  5px  5px  10px #aa47cf, 
                             inset -5px -5px  10px #e65fff;
+            }
+        }
+    }
+
+    .redes-sociales {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        .red-social {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            text-decoration: none;
+            background: none;
+            border: none;
+            border-radius: 10px;
+            background: $blanco;
+            box-shadow:  7px  7px  13px #c8c8d9, 
+                        -7px -7px  13px #ffffff;
+            margin: 0 10px;
+            width: 50px;
+            height: 50px;
+
+            .icono {
+                line-height: 54px;
+                font-size: 25px;
             }
         }
     }
