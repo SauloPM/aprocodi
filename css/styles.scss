@@ -1,0 +1,126 @@
+
+// Colores
+
+$lila: rgb(200, 83, 243);
+$blanco: rgb(235,235,255);
+$texto: rgb(0,35,75);
+
+// ─────────────── //
+//     GENERAL     //
+// ─────────────── //
+
+* {
+    box-sizing: border-box;
+    color: $texto;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+// Placeholder
+
+::-webkit-input-placeholder { color: $texto; transition: .25s }
+     :-ms-input-placeholder { color: $texto; transition: .25s }
+              ::placeholder { color: $texto; transition: .25s }
+
+:focus::-webkit-input-placeholder { opacity: 0; }
+     :focus:-ms-input-placeholder { opacity: 0; }
+              :focus::placeholder { opacity: 0; }
+
+// ──────────────── //
+//     CONTACTO     //
+// ──────────────── //
+
+#contacto {
+    background: $blanco;
+    padding: 100px 0;
+
+    .titulo {
+        display: block;
+        font-size: 30px;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 700px;
+    }
+
+    .subrayado {
+        border-radius: 10px;
+        background: $blanco;
+        border: none;
+        box-shadow: inset  1px  1px  2px #ccccde, 
+                    inset -1px -1px  2px #ffffff;
+        margin-bottom: 75px;
+        width: 100%;
+        max-width: 700px;
+        height: 3px;
+    }
+
+    .formulario {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .entrada {
+            display: block;
+            background: $blanco;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            border-radius: 10px;
+            box-shadow: inset  5px  5px  10px rgb(200,200,215),
+                        inset -5px -5px  10px rgb(255,255,255);
+            padding: 10px 25px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 400px;
+            height: 55px;
+        }
+
+        textarea.entrada {
+            padding: 20px 25px;
+            height: 175px;
+            resize: none;
+        }
+
+        .boton {
+            color: $texto;
+            font-size: 18px;
+            font-weight: 900;
+            background: $blanco;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            box-shadow:  5px  5px  10px rgba(200,200,215),
+                        -5px -5px  10px rgb(255,255,255);
+            margin-top: 25px;
+            width: 100%;
+            max-width: 400px;
+            height: 55px;
+            transition: .1s;
+            cursor: pointer;
+
+            &:hover {
+                background: lighten($color: $lila, $amount: 1)
+            }
+
+            &:active {
+                box-shadow: inset  5px  5px  10px #aa47cf, 
+                            inset -5px -5px  10px #e65fff;
+            }
+        }
+    }
+}
+
+// ────────────── //
+//     FOOTER     //
+// ────────────── //
+
+#footer {
+    color: white;
+    background: black;
+}

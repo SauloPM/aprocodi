@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+  color: #00234b;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+::-webkit-input-placeholder {
+  color: #00234b;
+  transition: 0.25s;
+}
+
+:-ms-input-placeholder {
+  color: #00234b;
+  transition: 0.25s;
+}
+
+::placeholder {
+  color: #00234b;
+  transition: 0.25s;
+}
+
+:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+
+:focus::placeholder {
+  opacity: 0;
+}
+
+#contacto {
+  background: #ebebff;
+  padding: 100px 0;
+}
+#contacto .titulo {
+  display: block;
+  font-size: 30px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
+}
+#contacto .subrayado {
+  border-radius: 10px;
+  background: #ebebff;
+  border: none;
+  box-shadow: inset 1px 1px 2px #ccccde, inset -1px -1px 2px #ffffff;
+  margin-bottom: 75px;
+  width: 100%;
+  max-width: 700px;
+  height: 3px;
+}
+#contacto .formulario {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#contacto .formulario .entrada {
+  display: block;
+  background: #ebebff;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  border-radius: 10px;
+  box-shadow: inset 5px 5px 10px #c8c8d7, inset -5px -5px 10px white;
+  padding: 10px 25px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 400px;
+  height: 55px;
+}
+#contacto .formulario textarea.entrada {
+  padding: 20px 25px;
+  height: 175px;
+  resize: none;
+}
+#contacto .formulario .boton {
+  color: #00234b;
+  font-size: 18px;
+  font-weight: 900;
+  background: #ebebff;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  box-shadow: 5px 5px 10px #c8c8d7, -5px -5px 10px white;
+  margin-top: 25px;
+  width: 100%;
+  max-width: 400px;
+  height: 55px;
+  transition: 0.1s;
+  cursor: pointer;
+}
+#contacto .formulario .boton:hover {
+  background: #ca58f3;
+}
+#contacto .formulario .boton:active {
+  box-shadow: inset 5px 5px 10px #aa47cf, inset -5px -5px 10px #e65fff;
+}
+
+#footer {
+  color: white;
+  background: black;
+}
+
+/*# sourceMappingURL=styles.css.map */
