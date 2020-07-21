@@ -1,7 +1,18 @@
 $( window ).on( 'load', function() {
 
+    // ParticlesJS inicialization
     particlesJS.load( 'cuerpo', 'particles.json', function() {
         console.log( 'callback - particles.js config loaded' );
+    });
+
+    // Smooth Scrolling Links
+    $( '.raton' ).click( function( event ) {
+
+        event.preventDefault();
+
+        var target = $( this ).attr( 'href' );
+        
+        $( 'html, body' ).stop().animate({ scrollTop: $( target ).offset().top }, 1500, 'easeInOutExpo' );
     });
 
     $( document ).on( 'focus', '.entrada', function() {

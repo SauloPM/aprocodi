@@ -20,7 +20,7 @@ body canvas {
 }
 body:before {
   content: "";
-  background: url(../img/3.jpg) fixed center no-repeat;
+  background: url(../img/fondo.jpg) fixed center no-repeat;
   background-size: cover;
   filter: blur(3px);
   -webkit-filter: blur(3px);
@@ -106,25 +106,32 @@ body:after {
 #portada .raton {
   display: flex;
   justify-content: center;
-  border: 2px solid #fff;
+  border: 2px solid #ebebff;
   border-radius: 25px;
   position: absolute;
   bottom: 100px;
   z-index: 100;
   width: 40px;
   height: 70px;
-  cursor: pointer;
+  transition: 0.25s;
 }
 #portada .raton:before {
   content: "";
   display: block;
-  background: #fff;
+  background: #ebebff;
   border-radius: 50%;
   position: relative;
   top: 15px;
   width: 8px;
   height: 8px;
+  transition: 0.25s;
   animation: 1.5s scroll cubic-bezier(0.65, -0.55, 0.25, 1.5) infinite;
+}
+#portada .raton:hover {
+  border-color: #c80038;
+}
+#portada .raton:hover:before {
+  background: #c80038;
 }
 
 @keyframes scroll {
@@ -150,7 +157,7 @@ body:after {
     margin-left: 25px;
   }
 }
-.menu {
+#menu {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -158,13 +165,14 @@ body:after {
   margin: 0 auto;
   position: relative;
   z-index: 100;
-  width: 1000px;
+  width: 100%;
+  max-width: 1000px;
 }
-.menu .item {
+#menu .item {
   flex-shrink: 0;
   border-top: 5px solid #ebebff;
   border-left: 1px solid #ebebff;
-  margin: 0 35px;
+  margin: 35px;
   position: relative;
   width: 300px;
   height: 400px;
@@ -172,10 +180,7 @@ body:after {
   overflow: hidden;
   cursor: pointer;
 }
-.menu .item:nth-child(1), .menu .item:nth-child(3) {
-  margin-top: 100px;
-}
-.menu .item .titulo {
+#menu .item .titulo {
   font-size: 50px;
   text-transform: lowercase;
   writing-mode: vertical-lr;
@@ -184,7 +189,7 @@ body:after {
   left: 20px;
   transition: 0.25s ease-in;
 }
-.menu .item .titulo-oculto {
+#menu .item .titulo-oculto {
   font-size: 35px;
   font-weight: 700;
   font-family: "Sarpanch", sans-serif;
@@ -193,7 +198,7 @@ body:after {
   bottom: 60px;
   left: -500px;
 }
-.menu .item .texto {
+#menu .item .texto {
   display: block;
   line-height: 20px;
   position: absolute;
@@ -202,13 +207,17 @@ body:after {
   width: 240px;
   opacity: 0.75;
 }
-.menu .item:hover .titulo {
+#menu .item:hover {
+  border-top-color: #c80038;
+  border-left-color: #c80038;
+}
+#menu .item:hover .titulo {
   top: 500px;
 }
-.menu .item:hover .titulo-oculto {
+#menu .item:hover .titulo-oculto {
   animation: mover-a-la-derecha 0.25s forwards 0.5s;
 }
-.menu .item:hover .texto {
+#menu .item:hover .texto {
   animation: mover-a-la-derecha 0.25s forwards 0.65s;
 }
 
@@ -218,6 +227,14 @@ body:after {
   }
   to {
     left: 20px;
+  }
+}
+@media only screen and (min-width: 740px) {
+  #menu .item {
+    margin: 0 35px;
+  }
+  #menu .item:nth-child(1), #menu .item:nth-child(3) {
+    margin-top: 100px;
   }
 }
 #footer {

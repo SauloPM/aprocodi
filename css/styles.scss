@@ -37,7 +37,7 @@ body {
 
     &:before {
         content: '';
-        background: url(../img/3.jpg) fixed center no-repeat;
+        background: url(../img/fondo.jpg) fixed center no-repeat;
         background-size: cover;
                 filter: blur(3px);
         -webkit-filter: blur(3px);
@@ -109,25 +109,34 @@ body {
     .raton {
         display: flex;
         justify-content: center;
-        border: 2px solid #fff;
+        border: 2px solid $blanco;
         border-radius: 25px;
         position: absolute;
         bottom: 100px;
         z-index: 100;
         width: 40px;
         height: 70px;
-        cursor: pointer;
+        transition: .25s;
     
         &:before {
             content: '';
             display: block;
-            background: #fff;
+            background: $blanco;
             border-radius: 50%;
             position: relative;
             top: 15px;
             width: 8px;
             height: 8px;
+            transition: .25s;
             animation: 1.5s scroll cubic-bezier(0.65, -0.55, 0.25, 1.5) infinite;
+        }
+
+        &:hover {
+            border-color: $lila;
+
+            &:before {
+                background: $lila;
+            }
         }
     }
 }
@@ -168,7 +177,7 @@ body {
 //     MENÚ     //
 // ──────────── //
 
-.menu {
+#menu {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -176,21 +185,20 @@ body {
     margin: 0 auto;
     position: relative;
     z-index: 100;
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px;
 
     .item {
         flex-shrink: 0;
         border-top: 5px solid $blanco;
         border-left: 1px solid $blanco;
-        margin: 0 35px;
+        margin: 35px;
         position: relative;
         width: 300px;
         height: 400px;
         transition: .25s;
         overflow: hidden;
         cursor: pointer;
-
-        &:nth-child(1), &:nth-child(3) { margin-top: 100px }
 
         .titulo {
             font-size: 50px;
@@ -223,6 +231,8 @@ body {
         }
         
         &:hover {
+            border-top-color: $lila;
+            border-left-color: $lila;
 
             .titulo {
                 top: 500px;
@@ -242,6 +252,20 @@ body {
 @keyframes mover-a-la-derecha {
     from { left: -500px }
     to   { left:   20px }
+}
+
+// Mobile First
+
+@media only screen and (min-width: 740px) {
+
+    #menu .item {
+        margin: 0 35px;
+
+        &:nth-child(1),
+        &:nth-child(3) {
+            margin-top: 100px;
+        }
+    }
 }
 
 // ────────────── //
