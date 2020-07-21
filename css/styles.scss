@@ -1,6 +1,6 @@
 // Colores
 
-$lila: rgb(200,0,56);
+$lila: rgb(200,0,75);
 $blanco: rgb(235,235,255);
 $principal: rgb(0,35,75);
 $texto: rgb(0,35,75);
@@ -433,5 +433,55 @@ body {
                 font-size: 25px;
             }
         }
+    }
+}
+
+// ─────────────── //
+//     SPINNER     //
+// ─────────────── //
+
+.fondo-blanco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $fondo;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 500;
+
+    .spinner {
+        display: flex;
+    
+        .punto {
+            background: $lila;
+            border-radius: 50%;
+            margin: 0 2.5px;
+            width: 35px;
+            height: 35px;
+            animation: cargando 1.8s infinite ease-in-out;
+            animation-fill-mode: both;
+    
+            &:nth-child(1) {
+                animation-delay: -0.3s;
+            }
+    
+            &:nth-child(2) {
+                animation-delay: -0.15s;
+            }
+        }
+    }
+}
+
+@keyframes cargando {
+
+    0%, 80%, 100% {
+        transform: scale(0)
+    }
+    
+    40% {
+        transform: scale(1)
     }
 }

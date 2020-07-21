@@ -1,9 +1,36 @@
 $( window ).on( 'load', function() {
 
+    // WOW
+    new WOW({
+        mobile: false
+    }).init();
+
     // ParticlesJS inicialization
     particlesJS.load( 'cuerpo', 'particles.json', function() {
         console.log( 'callback - particles.js config loaded' );
     });
+
+    // ─────────────── //
+    //     SPINNER     //
+    // ─────────────── //
+
+    hideSpinner();
+
+    // Spinner hidding
+    function hideSpinner () {
+        $( '.spinner' ).fadeOut( 500, function () {
+
+            $( '.fondo-blanco' ).delay( 500 ).fadeOut( 500 );
+
+            setTimeout( function () {
+                $( 'body' ).css( 'overflow', 'visible' );
+            }, 500);
+        });
+    }
+
+    // ────────────────── //
+    //     NAVEGACIÓN     //
+    // ────────────────── //
 
     // Smooth Scrolling Links
     $( '.raton' ).click( function( event ) {
