@@ -82,6 +82,7 @@ body:after {
   color: #ebebff;
   font-family: "Sarpanch", sans-serif;
   font-size: 100px;
+  font-weight: 700;
   text-align: center;
   position: relative;
   z-index: 100;
@@ -131,6 +132,93 @@ body:after {
     transform: translateY(30px) scale(0.5);
   }
 }
+.menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 100px 0;
+  margin: 0 auto;
+  position: relative;
+  z-index: 100;
+  width: 1000px;
+}
+.menu .item {
+  flex-shrink: 0;
+  border-top: 5px solid #ebebff;
+  border-left: 1px solid #ebebff;
+  margin: 0 35px;
+  position: relative;
+  width: 300px;
+  height: 400px;
+  transition: 0.25s;
+  overflow: hidden;
+  cursor: pointer;
+}
+.menu .item:nth-child(1), .menu .item:nth-child(3) {
+  margin-top: 100px;
+}
+.menu .item .titulo {
+  font-size: 50px;
+  text-transform: lowercase;
+  writing-mode: vertical-lr;
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  transition: 0.25s ease-in;
+}
+.menu .item .titulo-oculto {
+  font-size: 35px;
+  font-weight: 700;
+  font-family: "Sarpanch", sans-serif;
+  text-transform: lowercase;
+  position: absolute;
+  bottom: 60px;
+  left: -500px;
+}
+.menu .item .texto {
+  display: block;
+  line-height: 20px;
+  position: absolute;
+  bottom: 20px;
+  left: -500px;
+  width: 240px;
+  opacity: 0.5;
+}
+.menu .item:hover .titulo {
+  top: 500px;
+}
+.menu .item:hover .titulo-oculto {
+  animation: mover-a-la-derecha 0.25s forwards 0.75s;
+}
+.menu .item:hover .texto {
+  animation: mover-a-la-derecha 0.25s forwards 0.5s;
+}
+
+@keyframes mover-a-la-derecha {
+  from {
+    left: -500px;
+  }
+  to {
+    left: 20px;
+  }
+}
+#footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 100px 0 175px;
+  position: relative;
+  z-index: 100;
+}
+#footer .legal {
+  line-height: 20px;
+}
+#footer .copyright {
+  color: #ebebff;
+  margin-top: 35px;
+}
+
 #about {
   display: flex;
   display: none;
@@ -243,23 +331,6 @@ body:after {
 #contacto .redes-sociales .red-social .icono {
   line-height: 54px;
   font-size: 25px;
-}
-
-#footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding-bottom: 150px;
-  position: relative;
-  z-index: 100;
-}
-#footer .legal {
-  line-height: 20px;
-}
-#footer .copyright {
-  color: #ebebff;
-  margin-top: 35px;
 }
 
 /*# sourceMappingURL=styles.css.map */
