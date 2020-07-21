@@ -43,6 +43,16 @@ body:after {
   opacity: 0.96;
 }
 
+::-moz-selection {
+  color: #ebebff;
+  background: #c80038;
+}
+
+::selection {
+  color: #ebebff;
+  background: #c80038;
+}
+
 ::-webkit-input-placeholder {
   color: #00234b;
   transition: 0.25s;
@@ -81,7 +91,7 @@ body:after {
 #portada .titulo {
   color: #ebebff;
   font-family: "Sarpanch", sans-serif;
-  font-size: 100px;
+  font-size: 62px;
   font-weight: 700;
   text-align: center;
   position: relative;
@@ -89,8 +99,7 @@ body:after {
 }
 #portada .subtitulo {
   color: #c80038;
-  margin-top: 120px;
-  margin-left: 25px;
+  margin-top: 115px;
   position: absolute;
   z-index: 100;
 }
@@ -130,6 +139,15 @@ body:after {
   100% {
     opacity: 0;
     transform: translateY(30px) scale(0.5);
+  }
+}
+@media only screen and (min-width: 500px) {
+  #portada .titulo {
+    font-size: 100px;
+  }
+  #portada .subtitulo {
+    margin-top: 120px;
+    margin-left: 25px;
   }
 }
 .menu {
@@ -182,16 +200,16 @@ body:after {
   bottom: 20px;
   left: -500px;
   width: 240px;
-  opacity: 0.5;
+  opacity: 0.75;
 }
 .menu .item:hover .titulo {
   top: 500px;
 }
 .menu .item:hover .titulo-oculto {
-  animation: mover-a-la-derecha 0.25s forwards 0.75s;
+  animation: mover-a-la-derecha 0.25s forwards 0.5s;
 }
 .menu .item:hover .texto {
-  animation: mover-a-la-derecha 0.25s forwards 0.5s;
+  animation: mover-a-la-derecha 0.25s forwards 0.65s;
 }
 
 @keyframes mover-a-la-derecha {
@@ -212,7 +230,12 @@ body:after {
   z-index: 100;
 }
 #footer .legal {
+  text-decoration: none;
   line-height: 20px;
+  transition: 0.25s ease-in;
+}
+#footer .legal:hover {
+  color: #c80038;
 }
 #footer .copyright {
   color: #ebebff;

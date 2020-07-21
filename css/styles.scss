@@ -6,6 +6,10 @@ $principal: rgb(0,35,75);
 $texto: rgb(0,35,75);
 $fondo: rgb(30, 30, 35);
 
+// Responsive breakpoints
+
+$mobile: 500px;
+
 // ─────────────── //
 //     GENERAL     //
 // ─────────────── //
@@ -58,6 +62,11 @@ body {
     }
 }
 
+// Selección de texto
+
+::-moz-selection { color: $blanco; background: $lila }
+     ::selection { color: $blanco; background: $lila }
+
 // Placeholder
 
 ::-webkit-input-placeholder { color: $texto; transition: .25s }
@@ -83,7 +92,7 @@ body {
     .titulo {
         color: $blanco;
         font-family: 'Sarpanch', sans-serif;
-        font-size: 100px;
+        font-size: 62px;
         font-weight: 700;
         text-align: center;
         position: relative;
@@ -92,8 +101,7 @@ body {
 
     .subtitulo {
         color: $lila;
-        margin-top: 120px;
-        margin-left: 25px;
+        margin-top: 115px;
         position: absolute;
         z-index: 100;
     }
@@ -136,6 +144,23 @@ body {
     100% {
         opacity: 0;
         transform: translateY(30px) scale(0.5);
+    }
+}
+
+// Mobile First
+
+@media only screen and (min-width: $mobile) {
+ 
+    #portada {
+
+        .titulo {
+            font-size: 100px;
+        }
+    
+        .subtitulo {
+            margin-top: 120px;
+            margin-left: 25px;
+        }
     }
 }
 
@@ -194,7 +219,7 @@ body {
             bottom: 20px;
             left: -500px;
             width: 240px;
-            opacity: .5;
+            opacity: .75;
         }
         
         &:hover {
@@ -204,11 +229,11 @@ body {
             }
 
             .titulo-oculto {
-                animation: mover-a-la-derecha .25s forwards .75s;
+                animation: mover-a-la-derecha .25s forwards .5s;
             }
 
             .texto {
-                animation: mover-a-la-derecha .25s forwards .5s;
+                animation: mover-a-la-derecha .25s forwards .65s;
             }
         }
     }
@@ -233,9 +258,15 @@ body {
     z-index: 100;
 
     .legal {
+        text-decoration: none;
         line-height: 20px;
+        transition: .25s ease-in;
+
+        &:hover {
+            color: $lila;
+        }
     }
-    
+
     .copyright {
         color: $blanco;
         margin-top: 35px;
