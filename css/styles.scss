@@ -261,7 +261,19 @@ body {
 
             .titulo {
                 font-size: 50px;
-                margin: 0 0 50px;
+                margin: 0 0 25px;
+            }
+
+            .raya {
+                display: block;
+                background: $lila;
+                border: none;
+                margin: 0 auto 25px 0;
+                width: 100px;
+                height: 8px;
+                transform: scaleX(0);
+                transition: .25s ease-in;
+                transform-origin: left;
             }
 
             .texto {
@@ -283,9 +295,16 @@ body {
             }
         }
 
-        &:hover .imagen {
-            transform: translateZ(50px);
-            filter: grayscale(0);
+        &:hover {
+
+            .imagen {
+                transform: translateZ(50px);
+                filter: grayscale(0);
+            }
+
+            .raya {
+                transform: scaleX(1);
+            }
         }
 
         &:nth-child(odd) {
@@ -304,6 +323,11 @@ body {
                 text-align: right;
                 padding: 0 100px 0 50px;
                 right: -25px;
+
+                .raya {
+                    margin: 0 0 25px auto;
+                    transform-origin: right;
+                }
             }
         }
     }
