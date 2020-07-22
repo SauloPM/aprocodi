@@ -10,6 +10,37 @@ $fondo: rgb(30, 30, 35);
 
 $mobile: 500px;
 
+// Selección de texto
+
+::-moz-selection { color: $blanco; background: $lila }
+     ::selection { color: $blanco; background: $lila }
+
+// Placeholder
+
+::-webkit-input-placeholder { color: $texto; transition: .25s }
+     :-ms-input-placeholder { color: $texto; transition: .25s }
+              ::placeholder { color: $texto; transition: .25s }
+
+:focus::-webkit-input-placeholder { opacity: 0; }
+     :focus:-ms-input-placeholder { opacity: 0; }
+              :focus::placeholder { opacity: 0; }
+
+// Scrollbar
+
+::-webkit-scrollbar { width: 2px }
+  
+::-webkit-scrollbar-track {
+    background: $fondo;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $lila;
+
+    &:hover {
+        background: $blanco;
+    }
+}
+
 // ─────────────── //
 //     GENERAL     //
 // ─────────────── //
@@ -25,6 +56,7 @@ $mobile: 500px;
 body {
     padding: 0;
     margin: 0;
+    overflow-y: hidden; // Spinner
 
     canvas {
         position: fixed;
@@ -62,21 +94,6 @@ body {
     }
 }
 
-// Selección de texto
-
-::-moz-selection { color: $blanco; background: $lila }
-     ::selection { color: $blanco; background: $lila }
-
-// Placeholder
-
-::-webkit-input-placeholder { color: $texto; transition: .25s }
-     :-ms-input-placeholder { color: $texto; transition: .25s }
-              ::placeholder { color: $texto; transition: .25s }
-
-:focus::-webkit-input-placeholder { opacity: 0; }
-     :focus:-ms-input-placeholder { opacity: 0; }
-              :focus::placeholder { opacity: 0; }
-
 // ─────────────── //
 //     PORTADA     //
 // ─────────────── //
@@ -85,9 +102,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: $fondo;
+    position: relative;
     height: 100vh;
-    min-height: 750px;
+    // min-height: 750px;
 
     .titulo {
         color: $blanco;
@@ -95,6 +112,7 @@ body {
         font-size: 62px;
         font-weight: 700;
         text-align: center;
+        margin: 0;
         position: relative;
         z-index: 100;
     }
@@ -112,10 +130,10 @@ body {
         border: 2px solid $blanco;
         border-radius: 25px;
         position: absolute;
-        bottom: 100px;
+        bottom: 25px;
         z-index: 100;
-        width: 40px;
-        height: 70px;
+        width: 35px;
+        height: 55px;
         transition: .25s;
     
         &:before {
@@ -125,8 +143,8 @@ body {
             border-radius: 50%;
             position: relative;
             top: 15px;
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             transition: .25s;
             animation: 1.5s scroll cubic-bezier(0.65, -0.55, 0.25, 1.5) infinite;
         }
@@ -137,6 +155,37 @@ body {
             &:before {
                 background: $lila;
             }
+        }
+    }
+}
+
+// Mobile First
+
+@media only screen and (min-width: $mobile) {
+ 
+    #portada {
+
+        .titulo {
+            font-size: 100px;
+        }
+    
+        .subtitulo {
+            margin-top: 120px;
+            margin-left: 25px;
+        }
+    }
+}
+
+@media only screen and (min-height: 600px) {
+ 
+    #portada .raton {
+        bottom: 100px;
+        width: 42px;
+        height: 68px;
+
+        &:before {
+            width: 8px;
+            height: 8px;
         }
     }
 }
@@ -156,19 +205,106 @@ body {
     }
 }
 
-// Mobile First
+// ───────────── //
+//     ABOUT     //
+// ───────────── //
 
-@media only screen and (min-width: $mobile) {
- 
-    #portada {
+#about {
+    position: relative;
+    z-index: 100;
+    transform-style: preserve-3d;
 
-        .titulo {
-            font-size: 100px;
+    .item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 300px auto;
+        position: relative;
+        width: 450px;
+        height: 300px;
+        transform-style: preserve-3d;
+        cursor: pointer;
+
+        .imagen {
+            flex-shrink: 0;
+            box-shadow: 40px 0 80px -50px black;
+            position: relative;
+            left: 25px;
+            width: 500px;
+            height: 400px;
+            transform: translateZ(20px);
+            transform-style: preserve-3d;
+            transition: .5s;
+            filter: grayscale(100%);
         }
-    
-        .subtitulo {
-            margin-top: 120px;
-            margin-left: 25px;
+
+        &:nth-child(1) .imagen {
+            background: url(../img/servicio1.jpg) center no-repeat;
+            background-size: cover;
+        }
+
+        &:nth-child(2) .imagen {
+            background: url(../img/servicio2.jpg) center no-repeat;
+            background-size: cover;
+        }
+
+        .contenido {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-shrink: 0;
+            padding: 0 50px 0 100px;
+            position: relative;
+            right: 25px;
+            width: 500px;
+            height: 400px;
+
+            .titulo {
+                font-size: 50px;
+                margin: 0 0 50px;
+            }
+
+            .texto {
+                line-height: 25px;
+                margin: 0;
+            }
+
+            &:before {
+                content: '';
+                background: $fondo;
+                background: none;
+                border: 2px solid $blanco;
+                position: absolute;
+                top: -50px;
+                left: 0;
+                right: 0;
+                bottom: -50px;
+                z-index: -1;
+            }
+        }
+
+        &:hover .imagen {
+            transform: translateZ(50px);
+            filter: grayscale(0);
+        }
+
+        &:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+
+            .imagen {
+                box-shadow: -40px 0 80px -50px black;
+                left: -25px;
+            }
+
+            .contenido {
+                text-align: right;
+                padding: 0 100px 0 50px;
+                right: -25px;
+            }
         }
     }
 }
@@ -294,30 +430,6 @@ body {
     .copyright {
         color: $blanco;
         margin-top: 35px;
-    }
-}
-
-// ───────────── //
-//     ABOUT     //
-// ───────────── //
-
-#about {
-    display: flex;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 250px 50px;
-    overflow: hidden;
-    height: auto;
-    min-height: 750px;
-
-    .texto {
-        color: blue;
-        font-size: 25px;
-        line-height: 55px;
-        margin: 0 auto;
-        width: 750px;
     }
 }
 

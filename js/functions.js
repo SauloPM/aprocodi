@@ -1,10 +1,15 @@
 $( window ).on( 'load', function() {
 
-    // WOW
-    new WOW({
-        mobile: false
-    }).init();
-
+    VanillaTilt.init( document.querySelector( '#about .item:nth-child(1)' ), {
+		max: 5,
+        speed: 2000
+    });
+    
+    VanillaTilt.init( document.querySelector( '#about .item:nth-child(2)' ), {
+		max: 5,
+        speed: 2000
+    });
+    
     // ParticlesJS inicialization
     particlesJS.load( 'cuerpo', 'particles.json', function() {
         console.log( 'callback - particles.js config loaded' );
@@ -18,9 +23,9 @@ $( window ).on( 'load', function() {
 
     // Spinner hidding
     function hideSpinner () {
-        $( '.spinner' ).fadeOut( 500, function () {
+        $( '.spinner' ).fadeOut( 250, function () {
 
-            $( '.fondo' ).delay( 500 ).fadeOut( 500 );
+            $( '.fondo' ).delay( 250 ).fadeOut( 250 );
 
             setTimeout( function () {
                 $( 'body' ).css( 'overflow', 'visible' );
@@ -40,6 +45,20 @@ $( window ).on( 'load', function() {
         var target = $( this ).attr( 'href' );
         
         $( 'html, body' ).stop().animate({ scrollTop: $( target ).offset().top }, 1500, 'easeInOutExpo' );
+    });
+
+    // Navegar a una página legal
+    $( document ).on( 'click', '.legal', function( event ) {
+
+        event.preventDefault();
+
+        var target = $( this ).attr( 'href' );
+
+        $( '.fondo' ).fadeIn( 250 );
+
+        setTimeout(() => {
+            location.href = target;
+        }, 500);
     });
 
     $( document ).on( 'focus', '.entrada', function() {
