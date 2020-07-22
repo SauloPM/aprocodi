@@ -20,7 +20,7 @@ $( window ).on( 'load', function() {
     function hideSpinner () {
         $( '.spinner' ).fadeOut( 500, function () {
 
-            $( '.fondo-blanco' ).delay( 500 ).fadeOut( 500 );
+            $( '.fondo' ).delay( 500 ).fadeOut( 500 );
 
             setTimeout( function () {
                 $( 'body' ).css( 'overflow', 'visible' );
