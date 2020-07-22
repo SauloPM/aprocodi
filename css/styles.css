@@ -185,6 +185,7 @@ body:after {
   }
 }
 #about {
+  padding-top: 300px;
   position: relative;
   z-index: 100;
   transform-style: preserve-3d;
@@ -193,11 +194,10 @@ body:after {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 300px auto;
+  margin: 0 auto 300px;
   position: relative;
-  width: 450px;
-  height: 300px;
   transform-style: preserve-3d;
+  width: fit-content;
   cursor: pointer;
 }
 #about .item .imagen {
@@ -291,6 +291,7 @@ body:after {
 
 #menu {
   display: flex;
+  display: none;
   justify-content: center;
   flex-wrap: wrap;
   padding: 100px 0;
