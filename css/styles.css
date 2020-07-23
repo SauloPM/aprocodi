@@ -9,17 +9,17 @@
 }
 
 ::-webkit-input-placeholder {
-  color: #00234b;
+  color: #c8004b;
   transition: 0.25s;
 }
 
 :-ms-input-placeholder {
-  color: #00234b;
+  color: #c8004b;
   transition: 0.25s;
 }
 
 ::placeholder {
-  color: #00234b;
+  color: #c8004b;
   transition: 0.25s;
 }
 
@@ -477,7 +477,7 @@ body:after {
   resize: none;
 }
 #contacto .formulario .boton {
-  color: #00234b;
+  color: #c8004b;
   font-size: 18px;
   font-weight: 900;
   background: #ebebff;

@@ -1,10 +1,8 @@
 // Colores
 
-$lila: rgb(200,0,75);
-$blanco: rgb(235,235,255);
-$principal: rgb(0,35,75);
-$texto: rgb(0,35,75);
-$fondo: rgb(30, 30, 35);
+$fondo  : rgb(030,030,035);
+$blanco : rgb(235,235,255);
+$magenta: rgb(200,000,075);
 
 // Responsive breakpoints
 
@@ -14,14 +12,14 @@ $laptop: 980px;
 
 // Selección de texto
 
-::-moz-selection { color: $blanco; background: $lila }
-     ::selection { color: $blanco; background: $lila }
+::-moz-selection { color: $blanco; background: $magenta }
+     ::selection { color: $blanco; background: $magenta }
 
 // Placeholder
 
-::-webkit-input-placeholder { color: $texto; transition: .25s }
-     :-ms-input-placeholder { color: $texto; transition: .25s }
-              ::placeholder { color: $texto; transition: .25s }
+::-webkit-input-placeholder { color: $magenta; transition: .25s }
+     :-ms-input-placeholder { color: $magenta; transition: .25s }
+              ::placeholder { color: $magenta; transition: .25s }
 
 :focus::-webkit-input-placeholder { opacity: 0; }
      :focus:-ms-input-placeholder { opacity: 0; }
@@ -36,7 +34,7 @@ $laptop: 980px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: $lila;
+    background: $magenta;
 
     &:hover {
         background: $blanco;
@@ -119,7 +117,7 @@ body {
     }
 
     .subtitulo {
-        color: $lila;
+        color: $magenta;
         margin-top: 115px;
         position: absolute;
         z-index: 100;
@@ -151,10 +149,10 @@ body {
         }
 
         &:hover {
-            border-color: $lila;
+            border-color: $magenta;
 
             &:before {
-                background: $lila;
+                background: $magenta;
             }
         }
     }
@@ -246,7 +244,7 @@ body {
             }
 
             .raya {
-                background: $lila;
+                background: $magenta;
                 border: none;
                 width: 100px;
                 height: 8px;
@@ -444,8 +442,8 @@ body {
         }
         
         &:hover {
-            border-top-color: $lila;
-            border-left-color: $lila;
+            border-top-color: $magenta;
+            border-left-color: $magenta;
 
             .titulo {
                 top: 500px;
@@ -500,7 +498,7 @@ body {
         transition: .25s ease-in;
 
         &:hover {
-            color: $lila;
+            color: $magenta;
         }
     }
 
@@ -570,7 +568,7 @@ body {
         }
 
         .boton {
-            color: $texto;
+            color: $magenta;
             font-size: 18px;
             font-weight: 900;
             background: $blanco;
@@ -642,10 +640,10 @@ body {
     z-index: 1000;
 
     .spinner {
-        background: $lila;
-        outline: 6px solid $lila;
+        background: $magenta;
+        outline: 6px solid $magenta;
         outline-offset: -1px;
-        box-shadow: 0 0 0 1px $lila;
+        box-shadow: 0 0 0 1px $magenta;
         width: 100px;
         height: 100px;
         transform: rotate(45deg) scale(0.5);
@@ -653,7 +651,7 @@ body {
         &:before {
             content: '';
             display: block;
-            background: $lila;
+            background: $magenta;
             width: 100px;
             height: 100px;
             animation: cargando 3s infinite;
