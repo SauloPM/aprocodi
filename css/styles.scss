@@ -448,9 +448,13 @@ body {
 
 @media (min-width: $laptop) {
 
-    #contacto .formulario {
-        padding-left: 50px;
-        margin-top: 125px;
+    #contacto {
+        padding: 0 0 150px;
+        
+        .formulario {
+            padding-left: 50px;
+            margin-top: 125px;
+        }
     }
 }
 

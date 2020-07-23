@@ -379,6 +379,9 @@ body:after {
 }
 
 @media (min-width: 980px) {
+  #contacto {
+    padding: 0 0 150px;
+  }
   #contacto .formulario {
     padding-left: 50px;
     margin-top: 125px;
