@@ -9,6 +9,8 @@ $fondo: rgb(30, 30, 35);
 // Responsive breakpoints
 
 $mobile: 500px;
+$tablet: 768px;
+$laptop: 980px;
 
 // Selección de texto
 
@@ -104,7 +106,6 @@ body {
     justify-content: center;
     position: relative;
     height: 100vh;
-    // min-height: 750px;
 
     .titulo {
         color: $blanco;
@@ -161,7 +162,7 @@ body {
 
 // Mobile First
 
-@media only screen and (min-width: $mobile) {
+@media (min-width: $mobile) {
  
     #portada {
 
@@ -176,7 +177,7 @@ body {
     }
 }
 
-@media only screen and (min-height: 600px) {
+@media (min-height: 600px) {
  
     #portada .raton {
         bottom: 100px;
@@ -210,123 +211,174 @@ body {
 // ───────────── //
 
 #about {
-    padding-top: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 100px 25px;
     position: relative;
     z-index: 100;
-    transform-style: preserve-3d;
 
     .item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 300px;
-        position: relative;
-        transform-style: preserve-3d;
-        width: fit-content;
+        border: 2px solid $blanco;
         cursor: pointer;
 
         .imagen {
-            flex-shrink: 0;
-            box-shadow: 40px 0 80px -50px black;
-            position: relative;
-            left: 25px;
-            width: 500px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width:100%;
+            max-width: 500px;
             height: 400px;
-            transform: translateZ(20px);
-            transform-style: preserve-3d;
-            transition: .5s;
-            filter: grayscale(100%);
-        }
-
-        &:nth-child(1) .imagen {
-            background: url(../img/servicio1.jpg) center no-repeat;
-            background-size: cover;
-        }
-
-        &:nth-child(2) .imagen {
-            background: url(../img/servicio2.jpg) center no-repeat;
-            background-size: cover;
         }
 
         .contenido {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            flex-shrink: 0;
-            padding: 0 50px 0 100px;
-            position: relative;
-            right: 25px;
-            width: 500px;
-            height: 400px;
+            padding: 35px;
+            width:100%;
+            max-width: 500px;
+            height: auto;
 
             .titulo {
-                font-size: 50px;
+                font-size: 35px;
                 margin: 0 0 25px;
             }
 
             .raya {
-                display: block;
                 background: $lila;
                 border: none;
-                margin: 0 auto 25px 0;
                 width: 100px;
                 height: 8px;
-                transform: scaleX(0);
-                transition: .25s ease-in;
-                transform-origin: left;
             }
 
             .texto {
                 line-height: 25px;
                 margin: 0;
             }
-
-            &:before {
-                content: '';
-                background: $fondo;
-                background: none;
-                border: 2px solid $blanco;
-                position: absolute;
-                top: -50px;
-                left: 0;
-                right: 0;
-                bottom: -50px;
-                z-index: -1;
-            }
-        }
-
-        &:hover {
-
-            .imagen {
-                transform: translateZ(50px);
-                filter: grayscale(0);
-            }
-
-            .raya {
-                transform: scaleX(1);
-            }
         }
 
         &:nth-child(odd) {
-            flex-direction: row;
+            margin-bottom: 50px;
+
+            .imagen {
+                background-image: url(../img/servicio1.jpg);
+            }
+
+            .contenido .raya {
+                margin: 0 auto 25px 0;
+            }
         }
 
         &:nth-child(even) {
-            flex-direction: row-reverse;
 
             .imagen {
-                box-shadow: -40px 0 80px -50px black;
-                left: -25px;
+                background-image: url(../img/servicio2.jpg);
             }
 
             .contenido {
                 text-align: right;
-                padding: 0 100px 0 50px;
-                right: -25px;
 
                 .raya {
                     margin: 0 0 25px auto;
-                    transform-origin: right;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $laptop) {
+
+    #about {
+        padding: 200px 0;
+
+        .item {
+            display: flex;
+            border: none;
+            width: fit-content;
+            transform-style: preserve-3d;
+    
+            .imagen {
+                flex-shrink: 0;
+                position: relative;
+                width: 500px;
+                height: 400px;
+                transform: translateZ(25px);
+                transition: .25s ease-in;
+                filter: grayscale(100%);
+            }
+    
+            .contenido {
+                flex-shrink: 0;
+                position: relative;
+                width: 500px;
+                height: 400px;
+    
+                .titulo {
+                    font-size: 50px;
+                }
+    
+                .raya {
+                    transform: scaleX(0);
+                    transition: .25s ease-in;
+                }
+    
+                &:before {
+                    content: '';
+                    background: none;
+                    border: 2px solid $blanco;
+                    position: absolute;
+                    top: -50px;
+                    left: 0;
+                    right: 0;
+                    bottom: -50px;
+                    z-index: -1;
+                }
+            }
+    
+            &:nth-child(odd) {
+                flex-direction: row;
+                margin-bottom: 250px;
+    
+                .imagen {
+                    box-shadow: 40px 0 80px -50px black;
+                    left: 25px;
+                }
+    
+                .contenido {
+                    padding: 0 50px 0 100px;
+                    right: 25px;
+                }
+            }
+    
+            &:nth-child(even) {
+                flex-direction: row-reverse;
+    
+                .imagen {
+                    box-shadow: -40px 0 80px -50px black;
+                    left: -25px;
+                }
+    
+                .contenido {
+                    text-align: right;
+                    padding: 0 100px 0 50px;
+                    right: -25px;
+    
+                    .raya {
+                        transform-origin: right;
+                    }
+                }
+            }
+    
+            &:hover {
+    
+                .imagen {
+                    transform: translateZ(50px);
+                    filter: grayscale(0);
+                }
+    
+                .raya {
+                    transform: scaleX(1);
                 }
             }
         }
@@ -417,7 +469,7 @@ body {
 
 // Mobile First
 
-@media only screen and (min-width: 740px) {
+@media (min-width: 740px) {
 
     #menu .item {
         margin: 0 35px;
