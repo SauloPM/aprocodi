@@ -23,11 +23,6 @@ $( window ).on( 'load', function() {
 
         let alturaViewport = window.innerHeight;
 
-        console.log( 'Altura del viewport » ' + window.innerHeight );
-        console.log( 'Coordenadas verticales del formulario de contacto » ' + $( '#contacto' ).position().top );
-        console.log( 'Distancia con respecto al top de la página » ' + $( this ).scrollTop() );
-        console.log( '──────────────────────────────────────────────' )
-
         if ( ( $( this ).scrollTop() + ( alturaViewport / 2 ) ) >= $( '#contacto' ).position().top ) {
             $( '#contacto .raya' ).css( 'transform', 'scaleX(1)' );
         }
@@ -93,12 +88,27 @@ $( window ).on( 'load', function() {
     // ──────────────── //
 
     VanillaTilt.init( document.querySelectorAll( '#contacto .formulario' ), {
-            max: 5,
+            max: 2,
         speed: 2000
     });
 
     $( document ).on( 'focus', '.entrada', function() {
 
+    });
+
+    var swiper = new Swiper('.swiper-container', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        loop: true,
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        }
     });
 
 });

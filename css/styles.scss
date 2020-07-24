@@ -17,9 +17,9 @@ $laptop: 980px;
 
 // Placeholder
 
-::-webkit-input-placeholder { color: transparentize($blanco, .25); transition: .25s ease-in }
-     :-ms-input-placeholder { color: transparentize($blanco, .25); transition: .25s ease-in }
-              ::placeholder { color: transparentize($blanco, .25); transition: .25s ease-in }
+::-webkit-input-placeholder { color: transparentize($blanco, .5); transition: .25s ease-in }
+     :-ms-input-placeholder { color: transparentize($blanco, .5); transition: .25s ease-in }
+              ::placeholder { color: transparentize($blanco, .5); transition: .25s ease-in }
 
 :focus::-webkit-input-placeholder { opacity: 0; }
      :focus:-ms-input-placeholder { opacity: 0; }
@@ -409,29 +409,68 @@ body {
         display: flex;
         flex-direction: column;
         border: 2px solid $blanco;
-        padding: 50px;
+        padding: 75px 50px;
         margin-top: 75px;
         width: 100%;
         max-width: 550px;
 
-        .entrada {
-            background: none;
-            border: none;
-            border-bottom: 2px solid $blanco;
-            outline: none;
-            padding: 20px;
-            margin-bottom: 25px;
+        .entrada-wrapper {
+            margin-bottom: 35px;
+            position: relative;
             width: 100%;
-            transition: .25s ease-in;
 
-            &:focus {
-                border-color: $magenta;
+            .entrada {
+                color: $fondo;
+                background: none;
+                border: none;
+                outline: none;
+                padding: 20px;
+                position: relative;
+                z-index: 10;
+                width: 100%;
             }
-        }
 
-        textarea.entrada {
-            height: 175px;
-            resize: none;
+            textarea.entrada {
+                height: 150px;
+                resize: none;
+            }
+
+            .placeholder {
+                position: absolute;
+                left: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                transition: .25s ease-in;
+                pointer-events: none;
+            }
+
+            textarea.entrada + .placeholder {
+                top: 20px;
+                transform: translateY(0);
+            }
+
+            .entrada:focus + .placeholder,
+            .entrada:valid + .placeholder {
+                top: -25px;
+                transform: translateY(0);
+            }
+
+            .linea {
+                background: $blanco;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                z-index: -1;
+                width: 100%;
+                height: 2px;
+                transition: .25s ease-in;
+                pointer-events: none;
+            }
+
+            .entrada:focus ~ .linea,
+            .entrada:valid ~ .linea {
+                height: 100%;
+            }
         }
 
         .boton {
@@ -439,7 +478,7 @@ body {
             background: none;
             border: 2px solid $blanco;
             outline: none;
-            margin: 25px 0;
+            margin: 25px 0 0;
             position: relative;
             width: 100%;
             height: 55px;

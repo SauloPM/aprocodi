@@ -9,17 +9,17 @@
 }
 
 ::-webkit-input-placeholder {
-  color: rgba(235, 235, 255, 0.75);
+  color: rgba(235, 235, 255, 0.5);
   transition: 0.25s ease-in;
 }
 
 :-ms-input-placeholder {
-  color: rgba(235, 235, 255, 0.75);
+  color: rgba(235, 235, 255, 0.5);
   transition: 0.25s ease-in;
 }
 
 ::placeholder {
-  color: rgba(235, 235, 255, 0.75);
+  color: rgba(235, 235, 255, 0.5);
   transition: 0.25s ease-in;
 }
 
@@ -346,34 +346,68 @@ body:after {
   display: flex;
   flex-direction: column;
   border: 2px solid #ebebff;
-  padding: 50px;
+  padding: 75px 50px;
   margin-top: 75px;
   width: 100%;
   max-width: 550px;
 }
-#contacto .formulario .entrada {
+#contacto .formulario .entrada-wrapper {
+  margin-bottom: 35px;
+  position: relative;
+  width: 100%;
+}
+#contacto .formulario .entrada-wrapper .entrada {
+  color: #1e1e23;
   background: none;
   border: none;
-  border-bottom: 2px solid #ebebff;
   outline: none;
   padding: 20px;
-  margin-bottom: 25px;
+  position: relative;
+  z-index: 10;
   width: 100%;
-  transition: 0.25s ease-in;
 }
-#contacto .formulario .entrada:focus {
-  border-color: #c8004b;
-}
-#contacto .formulario textarea.entrada {
-  height: 175px;
+#contacto .formulario .entrada-wrapper textarea.entrada {
+  height: 150px;
   resize: none;
+}
+#contacto .formulario .entrada-wrapper .placeholder {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.25s ease-in;
+  pointer-events: none;
+}
+#contacto .formulario .entrada-wrapper textarea.entrada + .placeholder {
+  top: 20px;
+  transform: translateY(0);
+}
+#contacto .formulario .entrada-wrapper .entrada:focus + .placeholder,
+#contacto .formulario .entrada-wrapper .entrada:valid + .placeholder {
+  top: -25px;
+  transform: translateY(0);
+}
+#contacto .formulario .entrada-wrapper .linea {
+  background: #ebebff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+  height: 2px;
+  transition: 0.25s ease-in;
+  pointer-events: none;
+}
+#contacto .formulario .entrada-wrapper .entrada:focus ~ .linea,
+#contacto .formulario .entrada-wrapper .entrada:valid ~ .linea {
+  height: 100%;
 }
 #contacto .formulario .boton {
   color: #ebebff;
   background: none;
   border: 2px solid #ebebff;
   outline: none;
-  margin: 25px 0;
+  margin: 25px 0 0;
   position: relative;
   width: 100%;
   height: 55px;

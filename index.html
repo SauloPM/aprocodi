@@ -102,10 +102,29 @@
 
         <form action="" class="formulario wow fadeIn" data-wow-delay=".5s">
 
-            <input    type="text" name="" class="entrada" placeholder="Nombre">
-            <input    type="text" name="" class="entrada" placeholder="Dirección de correo eletrónico" >
-            <input    type="text" name="" class="entrada" placeholder="Asunto">
-            <textarea             name="" class="entrada" placeholder="Mensaje"></textarea>
+            <div class="entrada-wrapper">
+                <input class="entrada" type="text" name="" required>
+                <span class="placeholder">Nombre</span>
+                <span class="linea"></span>
+            </div>
+
+            <div class="entrada-wrapper">
+                <input class="entrada" type="text" name="" required>
+                <span class="placeholder">Email</span>
+                <span class="linea"></span>
+            </div>
+
+            <div class="entrada-wrapper">
+                <input class="entrada" type="text" name="" required>
+                <span class="placeholder">Asunto</span>
+                <span class="linea"></span>
+            </div>
+
+            <div class="entrada-wrapper">
+                <textarea class="entrada" name="" required></textarea>
+                <span class="placeholder">Mensaje</span>
+                <span class="linea"></span>
+            </div>
 
             <button type="submit" class="boton" >Enviar</button>
 
@@ -194,7 +213,7 @@
     
     <!-- particles.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    
+
     <!-- vanilla-tilt.js -->
     <script src="js/vanilla-tilt.js"></script>
 
