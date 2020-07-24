@@ -8,6 +8,15 @@ $( window ).on( 'load', function() {
         console.log( 'callback - particles.js config loaded' );
     });
 
+    // ─────────────── //
+    //     COOKIES     //
+    // ─────────────── //
+
+    $( document ).on( 'click', '.cookies .enlace', function() {
+
+        $( '.cookies' ).fadeOut( 250 );
+    });
+
     // ────────────── //
     //     SCROLL     //
     // ────────────── //

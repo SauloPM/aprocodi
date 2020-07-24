@@ -345,8 +345,6 @@ body:after {
 #contacto .formulario {
   display: flex;
   flex-direction: column;
-  border: 2px solid #ebebff;
-  padding: 75px 50px;
   margin-top: 75px;
   width: 100%;
   max-width: 550px;
@@ -424,6 +422,8 @@ body:after {
     padding: 0 0 150px;
   }
   #contacto .formulario {
+    border: 2px solid #ebebff;
+    padding: 75px 50px;
     margin-top: 125px;
     margin-left: 50px;
   }
@@ -550,6 +550,80 @@ body:after {
   margin-top: 35px;
 }
 
+.cookies {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  z-index: 100;
+  width: 250px;
+  height: 250px;
+  cursor: pointer;
+}
+.cookies .contenido {
+  font-size: 12px;
+  text-align: center;
+  line-height: 18px;
+  position: relative;
+  z-index: 25;
+  padding: 45px;
+}
+.cookies .contenido .enlace {
+  display: block;
+  font-size: 12px;
+  text-decoration: none;
+  border-bottom: 1px solid #c8004b;
+  margin: 10px auto 0;
+  padding: 0 5px 4px;
+  width: fit-content;
+  transition: 0.25s ease-in;
+}
+.cookies .capa {
+  border: 1px solid #ebebff;
+  border-radius: 38% 62% 63% 37%/41% 44% 56% 59%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.25s ease-in;
+}
+.cookies .capa:nth-child(1) {
+  animation: animacion 6s linear infinite;
+}
+.cookies .capa:nth-child(2) {
+  animation: animacion 4s linear infinite;
+}
+.cookies .capa:nth-child(3) {
+  animation: animacion2 10s linear infinite;
+}
+.cookies:hover .contenido .enlace {
+  border-color: #ebebff;
+}
+.cookies:hover .capa {
+  background: rgba(200, 0, 75, 0.2);
+  border-color: transparent;
+}
+
+@keyframes animacion {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animacion2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
 .fondo {
   display: flex;
   align-items: center;
