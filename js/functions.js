@@ -1,9 +1,37 @@
 $( window ).on( 'load', function() {
+
+    // WOW JS inicialization
+    new WOW( { mobile: false } ).init();
     
     // ParticlesJS inicialization
     particlesJS.load( 'cuerpo', 'particles.json', function() {
         console.log( 'callback - particles.js config loaded' );
     });
+
+    // ────────────── //
+    //     SCROLL     //
+    // ────────────── //
+
+    highlightNavbar();
+
+    $(document).scroll(function() {
+        highlightNavbar();
+    });
+
+    // Function in charge of highlighting the current navigation bar item
+    function highlightNavbar() {
+
+        let alturaViewport = window.innerHeight;
+
+        console.log( 'Altura del viewport » ' + window.innerHeight );
+        console.log( 'Coordenadas verticales del formulario de contacto » ' + $( '#contacto' ).position().top );
+        console.log( 'Distancia con respecto al top de la página » ' + $( this ).scrollTop() );
+        console.log( '──────────────────────────────────────────────' )
+
+        if ( ( $( this ).scrollTop() + ( alturaViewport / 2 ) ) >= $( '#contacto' ).position().top ) {
+            $( '#contacto .raya' ).css( 'transform', 'scaleX(1)' );
+        }
+    }
 
     // ─────────────── //
     //     SPINNER     //
@@ -55,19 +83,19 @@ $( window ).on( 'load', function() {
     //     ABOUT     //
     // ───────────── //
 
-    VanillaTilt.init( document.querySelector( '#about .item:nth-child(1)' ), {
+    VanillaTilt.init( document.querySelectorAll( '#about .item' ), {
       	max: 5,
 		speed: 2000
     });
       
-	VanillaTilt.init( document.querySelector( '#about .item:nth-child(2)' ), {
-      	max: 5,
-		speed: 2000
-    });
-
     // ──────────────── //
     //     CONTACTO     //
     // ──────────────── //
+
+    VanillaTilt.init( document.querySelectorAll( '#contacto .formulario' ), {
+            max: 5,
+        speed: 2000
+    });
 
     $( document ).on( 'focus', '.entrada', function() {
 

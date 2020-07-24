@@ -337,9 +337,16 @@ body:after {
   width: 100%;
   max-width: 950px;
 }
+#contacto .raya {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: 0.25s ease-in;
+}
 #contacto .formulario {
   display: flex;
   flex-direction: column;
+  border: 2px solid #ebebff;
+  padding: 50px;
   margin-top: 75px;
   width: 100%;
   max-width: 550px;
@@ -383,8 +390,8 @@ body:after {
     padding: 0 0 150px;
   }
   #contacto .formulario {
-    padding-left: 50px;
     margin-top: 125px;
+    margin-left: 50px;
   }
 }
 #social {

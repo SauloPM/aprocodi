@@ -399,9 +399,17 @@ body {
     width: 100%;
     max-width: 950px;
 
+    .raya {
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: .25s ease-in;
+    }
+
     .formulario {
         display: flex;
         flex-direction: column;
+        border: 2px solid $blanco;
+        padding: 50px;
         margin-top: 75px;
         width: 100%;
         max-width: 550px;
@@ -452,8 +460,8 @@ body {
         padding: 0 0 150px;
         
         .formulario {
-            padding-left: 50px;
             margin-top: 125px;
+            margin-left: 50px;
         }
     }
 }
