@@ -153,7 +153,7 @@ body {
         z-index: 100;
         width: 35px;
         height: 55px;
-        transition: .25s;
+        transition: .25s ease;
     
         &:before {
             content: '';
@@ -500,88 +500,187 @@ body {
         .formulario {
             border: 2px solid $blanco;
             padding: 75px 50px;
-            margin-top: 125px;
+            margin-top: 150px;
             margin-left: 50px;
         }
     }
 }
 
+// ─────────────────── //
+//     TESTIMONIOS     //
+// ─────────────────── //
+
+#testimonios {
+    padding-bottom: 150px;
+    margin: 0 -25px;
+    position: relative;
+    z-index: 100;
+
+    .cabecera {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 950px;
+
+        .titulo {
+            text-align: right;
+        }
+
+        .raya {
+            margin: 0 0 150px auto;
+        }
+    }
+
+    .carrusel {
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            background: $fondo;
+            box-shadow: inset 0 0 0 2px $blanco;
+            padding: 50px;
+            margin: 0 auto;
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            cursor: pointer;
+
+            .nombre {
+                font-size: 30px;
+                margin: 0 0 25px;
+            }
+
+            .testimonio {
+                line-height: 25px;
+                margin: 0;
+            }
+
+            span {
+                background: $magenta;
+                position: absolute;
+                transition: .5s cubic-bezier(0.4, 0, 0.2, 1);
+                
+                &:nth-child(3) {
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    transform: scaleX(0);
+                    transform-origin: left;
+                }
+
+                &:nth-child(4) {
+                    top: 0;
+                    right: 0;
+                    width: 2px;
+                    height: 100%;
+                    transform: scaleY(0);
+                    transform-origin: top;
+                }
+
+                &:nth-child(5) {
+                    right: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 2px;
+                    transform: scaleX(0);
+                    transform-origin: right;
+                }
+
+                &:nth-child(6) {
+                    left: 0;
+                    bottom: 0;
+                    width: 2px;
+                    height: 100%;
+                    transform: scaleY(0);
+                    transform-origin: bottom;
+                }
+
+            }
+
+            &:hover span:nth-child( odd  ) { transform: scaleX(1) }
+            &:hover span:nth-child( even ) { transform: scaleY(1) }
+        }
+    }
+}
+
+// ────────────────────── //
+//     REDES SOCIALES     //
+// ────────────────────── //
+
 #social {
-    display: none;
     position: relative;
     z-index: 100;
 
     .redes-sociales {
         display: flex;
         justify-content: center;
-        transform: rotate(-25deg) skew(25deg);
         transform-style: preserve-3d;
         padding: 0;
         margin: 0;
     
         .red-social {
             list-style: none;
+            margin: 35px;
             position: relative;
-            width: 60px;
-            height: 60px;
-            margin: 10px;
-    
-            .capa {
+            width: 65px;
+            height: 65px;
+            
+            .enlace {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color: rgba(255,255,255,.2);
+                color: $blanco;
                 font-size: 30px;
-                background: #333;
+                text-decoration: none;
+                background: $magenta;
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-            }
-    
-            &:nth-child(1):hover .capa { background: #3b5999 }
-            &:nth-child(2):hover .capa { background: #00acee }
-            &:nth-child(3):hover .capa { background: #7232bd }
-            &:nth-child(4):hover .capa { background: #0e76a8 }
-            &:nth-child(5):hover .capa { background: #25d366 }
-            &:nth-child(6):hover .capa { background: #c4302b }
-    
-            &:hover .capa {
-                color: white;
-                box-shadow: -1px 1px 1px rgba(0,0,0,.05);
-                z-index: 1000;
-                transition: .5s ease-in-out;
-    
-                &:nth-child(1) { transform: translate(00px,-00px); opacity: 0.2 }
-                &:nth-child(2) { transform: translate(10px,-10px); opacity: 0.4 }
-                &:nth-child(3) { transform: translate(20px,-20px); opacity: 0.6 }
-                &:nth-child(4) { transform: translate(30px,-30px); opacity: 0.8 }
-                &:nth-child(5) { transform: translate(40px,-40px); opacity: 1.0 }
-            }
+                transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(0,0);
+                transition: .25s ease-in;
 
-            &:before {
-                content: '';
-                background: #2a2a2a;
-                position: absolute;
-                left: 0;
-                bottom: -10px;
-                width: 100%;
-                height: 10px;
-                transform: skewX(-41deg);
-                transform-origin: top;
-            }
+                .icono {
+                    color: $blanco;
+                    font-size: 25px;
+                }
 
-            &:after {
-                content: '';
-                background: #2a2a2a;
-                position: absolute;
-                top: 0;
-                left: -9px;
-                width: 9px;
-                height: 100%;
-                transform: skewY(-49deg);
-                transform-origin: right;
+                &:before {
+                    content: '';
+                    background: darken( $magenta, 10% );
+                    position: absolute;
+                    top: 7.5px;
+                    left: -15px;
+                    width: 15px;
+                    height: 100%;
+                    transform: rotate(0) skewY(-45deg);
+                    transition: .25s ease-in;
+                }
+    
+                &:after {
+                    content: '';
+                    background: lighten( $magenta, 10% );
+                    position: absolute;
+                    left: -7.5px;
+                    bottom: -15px;
+                    width: 100%;
+                    height: 15px;
+                    transform: rotate(0) skewX(-45deg);
+                    transition: .25s ease-in;
+                }
+
+                &:hover {
+                    transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(25px,-25px);
+                }
+
+                &.facebook:hover  { background: #3b5999; &:before { background: darken( #3b5999, 10% )} &:after { background: lighten( #3b5999, 10% ) } }
+                &.twitter:hover   { background: #00acee; &:before { background: darken( #00acee, 10% )} &:after { background: lighten( #00acee, 10% ) } }
+                &.instagram:hover { background: #7232bd; &:before { background: darken( #7232bd, 10% )} &:after { background: lighten( #7232bd, 10% ) } }
+                &.linkedin:hover  { background: #0e76a8; &:before { background: darken( #0e76a8, 10% )} &:after { background: lighten( #0e76a8, 10% ) } }
+                &.whatsapp:hover  { background: #25d366; &:before { background: darken( #25d366, 10% )} &:after { background: lighten( #25d366, 10% ) } }
+                &.youtube:hover   { background: #c4302b; &:before { background: darken( #c4302b, 10% )} &:after { background: lighten( #c4302b, 10% ) } }
             }
         }
     }
@@ -596,7 +695,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 0 150px;
+    padding: 150px 0 300px;
     position: relative;
     z-index: 100;
 
@@ -628,7 +727,7 @@ body {
     position: fixed;
     right: 50px;
     bottom: 50px;
-    z-index: 100;
+    z-index: 150;
     width: 250px;
     height: 250px;
     cursor: pointer;

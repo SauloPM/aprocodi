@@ -97,7 +97,7 @@ $( window ).on( 'load', function() {
     // ──────────────── //
 
     VanillaTilt.init( document.querySelectorAll( '#contacto .formulario' ), {
-            max: 2,
+        max: 2,
         speed: 2000
     });
 
@@ -105,19 +105,39 @@ $( window ).on( 'load', function() {
 
     });
 
-    var swiper = new Swiper('.swiper-container', {
-        effect: 'coverflow',
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: 'auto',
+    // ─────────────────── //
+    //     TESTIMONIOS     //
+    // ─────────────────── //
+
+    $( '#testimonios .carrusel' ).owlCarousel({
         loop: true,
-        coverflowEffect: {
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
+        margin: 10,
+        center: true,
+        nav: false, // Flechas
+        dots: false, // Puntos
+        responsive: {
+            0: {
+                items: 1
+            },
+            400: {
+                items: 1.75
+            },
+            600: {
+                items: 2.5
+            },
+            850: {
+                items: 3.5
+            },
+            1200: {
+                items: 4
+            },
+            1500: {
+                items: 5
+            },
+            1800: {
+                items: 5.5
+            }
         }
-    });
+    })
 
 });
