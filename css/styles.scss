@@ -54,7 +54,7 @@ $laptop: 980px;
 }
 
 body {
-    padding: 0;
+    padding: 0 25px;
     margin: 0;
     overflow-y: hidden; // Spinner
 
@@ -232,7 +232,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 100px 25px;
+    padding: 100px 0;
     position: relative;
     z-index: 100;
 
@@ -392,12 +392,12 @@ body {
 // ──────────────── //
 
 #contacto {
-    padding: 0 25px 150px;
+    padding: 0 0 150px;
     margin: 0 auto;
     position: relative;
     z-index: 100;
     width: 100%;
-    max-width: 950px;
+    max-width: 500px;
 
     .raya {
         transform: scaleX(0);
@@ -495,6 +495,7 @@ body {
 
     #contacto {
         padding: 0 0 150px;
+        max-width: 950px;
         
         .formulario {
             border: 2px solid $blanco;
@@ -662,8 +663,8 @@ body {
         height: 100%;
         transition: .25s ease-in;
 
-        &:nth-child(1) { animation: animacion  6s linear infinite }
-        &:nth-child(2) { animation: animacion  4s linear infinite }
+        &:nth-child(1) { animation: animacion1  6s linear infinite }
+        &:nth-child(2) { animation: animacion1  4s linear infinite }
         &:nth-child(3) { animation: animacion2 10s linear infinite }
     }
 
@@ -680,22 +681,14 @@ body {
     }
 }
 
-@keyframes animacion {
-    0% {
-        transform: rotate(0);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+@keyframes animacion1 {
+    from { transform: rotate(000deg) }
+    to   { transform: rotate(360deg) }
 }
 
 @keyframes animacion2 {
-    0% {
-        transform: rotate(360deg);
-    }
-    100% {
-        transform: rotate(0);
-    }
+    from { transform: rotate(360deg) }
+    to   { transform: rotate(000deg) }
 }
 
 // ─────────────── //
