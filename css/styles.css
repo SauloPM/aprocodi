@@ -436,6 +436,7 @@ body:after {
   z-index: 100;
 }
 #testimonios .cabecera {
+  padding: 0 25px;
   margin: 0 auto;
   width: 100%;
   max-width: 950px;
@@ -540,7 +541,7 @@ body:after {
   align-items: center;
   flex-direction: column;
   padding: 0;
-  margin: 0;
+  margin: -50px 0 0;
   transform-style: preserve-3d;
 }
 #social .redes-sociales .red-social {
@@ -592,7 +593,7 @@ body:after {
   transition: 0.25s ease-in;
 }
 #social .redes-sociales .red-social .enlace:hover {
-  transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(25px, -25px);
+  transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(12px, -12px);
 }
 #social .redes-sociales .red-social .enlace.facebook:hover {
   background: #3b5999;
@@ -665,6 +666,7 @@ body:after {
   justify-content: center;
   flex-direction: column;
   padding: 150px 0 300px;
+  margin-top: 32px;
   position: relative;
   z-index: 100;
 }

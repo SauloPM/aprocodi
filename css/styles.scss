@@ -517,6 +517,7 @@ body {
     z-index: 100;
 
     .cabecera {
+        padding: 0 25px;
         margin: 0 auto;
         width: 100%;
         max-width: 950px;
@@ -635,7 +636,7 @@ body {
         align-items: center;
         flex-direction: column;
         padding: 0;
-        margin: 0;
+        margin: -50px 0 0;
         transform-style: preserve-3d;
     
         .red-social {
@@ -690,7 +691,7 @@ body {
                 }
 
                 &:hover {
-                    transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(25px,-25px);
+                    transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(12px,-12px);
                 }
 
                 &.facebook:hover  { background: #3b5999; &:before { background: darken( #3b5999, 10% )} &:after { background: lighten( #3b5999, 10% ) } }
@@ -727,6 +728,7 @@ body {
     justify-content: center;
     flex-direction: column;
     padding: 150px 0 300px;
+    margin-top: 32px;
     position: relative;
     z-index: 100;
 
