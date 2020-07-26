@@ -12,8 +12,8 @@ $laptop: 980px;
 
 // Selección de texto
 
-::-moz-selection { color: $blanco; background: $magenta }
-     ::selection { color: $blanco; background: $magenta }
+::-moz-selection { color: $blanco; background: transparentize( $magenta, .01 ) }
+     ::selection { color: $blanco; background: transparentize( $magenta, .01 ) }
 
 // Placeholder
 
@@ -769,6 +769,67 @@ body {
     .copyright {
         color: $blanco;
         margin-top: 35px;
+    }
+}
+
+// ───────────── //
+//     LEGAL     //
+// ───────────── //
+
+#legal {
+    margin: 50px auto 50px;
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    max-width: 950px;
+
+    h1 {
+        color: $blanco;
+        font-family: 'Sarpanch', sans-serif;
+        font-size: 45px;
+        font-weight: 700;
+        margin: 0 0 50px;
+    }
+
+    h2 {
+        font-size: 30px;
+        margin: 0 0 50px;
+    }
+
+    h3 {
+        display: inline-block;
+        padding-bottom: 2px;
+        border-bottom: 1px solid $blanco;
+        margin: 0 0 50px;
+    }
+
+    p {
+        line-height: 25px;
+        margin: 0 0 50px;
+    }
+
+    ul {
+        margin-bottom: 50px;
+
+        li {
+            line-height: 25px;
+        }
+    }
+
+    a {
+        color: $magenta;
+    }
+}
+
+@media (min-width: $mobile) {
+
+    #legal {
+        margin: 250px auto 250px;
+
+        h1 {
+            font-size: 60px;
+            margin-bottom: 100px;
+        }
     }
 }
 

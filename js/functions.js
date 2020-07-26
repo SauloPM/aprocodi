@@ -21,14 +21,14 @@ $( window ).on( 'load', function() {
     //     SCROLL     //
     // ────────────── //
 
-    highlightNavbar();
+    mostrarRaya();
 
-    $(document).scroll(function() {
-        highlightNavbar();
+    $( document ).scroll(function() {
+        mostrarRaya();
     });
 
     // Function in charge of highlighting the current navigation bar item
-    function highlightNavbar() {
+    function mostrarRaya() {
 
         let alturaViewport = window.innerHeight;
 
