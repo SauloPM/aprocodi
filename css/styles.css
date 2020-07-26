@@ -517,17 +517,17 @@ body:after {
 }
 #social .redes-sociales {
   display: flex;
-  justify-content: center;
-  transform-style: preserve-3d;
+  align-items: center;
+  flex-direction: column;
   padding: 0;
   margin: 0;
+  transform-style: preserve-3d;
 }
 #social .redes-sociales .red-social {
   list-style: none;
-  margin: 35px;
+  margin: 55px 0;
   position: relative;
   width: 65px;
-  height: 65px;
 }
 #social .redes-sociales .red-social .enlace {
   display: flex;
@@ -540,8 +540,8 @@ body:after {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 65px;
+  height: 65px;
   transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(0, 0);
   transition: 0.25s ease-in;
 }
@@ -629,6 +629,16 @@ body:after {
   background: #d74f4b;
 }
 
+@media (min-width: 455px) {
+  #social .redes-sociales {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+  }
+  #social .redes-sociales .red-social {
+    margin: 55px 35px;
+  }
+}
 #footer {
   display: flex;
   align-items: center;

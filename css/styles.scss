@@ -614,17 +614,17 @@ body {
 
     .redes-sociales {
         display: flex;
-        justify-content: center;
-        transform-style: preserve-3d;
+        align-items: center;
+        flex-direction: column;
         padding: 0;
         margin: 0;
+        transform-style: preserve-3d;
     
         .red-social {
             list-style: none;
-            margin: 35px;
+            margin: 55px 0;
             position: relative;
             width: 65px;
-            height: 65px;
             
             .enlace {
                 display: flex;
@@ -637,8 +637,8 @@ body {
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 100%;
-                height: 100%;
+                width: 65px;
+                height: 65px;
                 transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(0,0);
                 transition: .25s ease-in;
 
@@ -682,6 +682,19 @@ body {
                 &.whatsapp:hover  { background: #25d366; &:before { background: darken( #25d366, 10% )} &:after { background: lighten( #25d366, 10% ) } }
                 &.youtube:hover   { background: #c4302b; &:before { background: darken( #c4302b, 10% )} &:after { background: lighten( #c4302b, 10% ) } }
             }
+        }
+    }
+}
+
+@media (min-width: 455px) {
+
+    #social .redes-sociales {
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+
+        .red-social {
+            margin: 55px 35px;
         }
     }
 }
