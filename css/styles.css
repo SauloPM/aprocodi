@@ -510,7 +510,27 @@ body:after {
 #testimonios .carrusel .item:hover span:nth-child(even) {
   transform: scaleY(1);
 }
+#testimonios .carrusel .owl-item.active.center .item span:nth-child(odd) {
+  transform: scaleX(1);
+}
+#testimonios .carrusel .owl-item.active.center .item span:nth-child(even) {
+  transform: scaleY(1);
+}
 
+@media (min-width: 768px) {
+  #testimonios .carrusel .owl-item.active.center .item span:nth-child(odd) {
+    transform: scaleX(0);
+  }
+  #testimonios .carrusel .owl-item.active.center .item span:nth-child(even) {
+    transform: scaleY(0);
+  }
+  #testimonios .carrusel .owl-item.active.center .item:hover span:nth-child(odd) {
+    transform: scaleX(1);
+  }
+  #testimonios .carrusel .owl-item.active.center .item:hover span:nth-child(even) {
+    transform: scaleY(1);
+  }
+}
 #social {
   position: relative;
   z-index: 100;

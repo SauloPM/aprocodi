@@ -120,10 +120,10 @@ $( window ).on( 'load', function() {
                 items: 1
             },
             400: {
-                items: 1.75
+                items: 1.5
             },
             600: {
-                items: 2.5
+                items: 2
             },
             850: {
                 items: 3.5

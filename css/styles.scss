@@ -601,6 +601,24 @@ body {
             &:hover span:nth-child( odd  ) { transform: scaleX(1) }
             &:hover span:nth-child( even ) { transform: scaleY(1) }
         }
+
+        .owl-item.active.center .item {
+
+            span:nth-child( odd  ) { transform: scaleX(1) }
+            span:nth-child( even ) { transform: scaleY(1) }
+        }
+    }
+}
+
+@media (min-width: $tablet) {
+
+    #testimonios .carrusel .owl-item.active.center .item {
+
+        span:nth-child( odd  ) { transform: scaleX(0) }
+        span:nth-child( even ) { transform: scaleY(0) }
+
+        &:hover span:nth-child( odd  ) { transform: scaleX(1) }
+        &:hover span:nth-child( even ) { transform: scaleY(1) }
     }
 }
 
