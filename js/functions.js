@@ -12,10 +12,10 @@ $( window ).on( 'load', function() {
     //     COOKIES     //
     // ─────────────── //
 
-    $( document ).on( 'click', '.cookies .enlace', function() {
+    // $( document ).on( 'click', '.cookies .enlace', function() {
 
-        $( '.cookies' ).fadeOut( 250 );
-    });
+    //     $( '.cookies' ).fadeOut( 250 );
+    // });
 
     // ────────────── //
     //     SCROLL     //
@@ -82,6 +82,52 @@ $( window ).on( 'load', function() {
             location.href = target;
         }, 500);
     });
+
+    // ─────────────── //
+    //     COOKIES     //
+    // ─────────────── //
+
+    showCookiesPopup();
+
+    $( document ).on( 'click', '.cookies .enlace', function() {
+
+        cerrarPopupCookies( true );
+    });
+
+    function showCookiesPopup() {
+
+        if ( !Cookies.get( 'aceptar-cookies' ) ) {
+            abrirPopupCookies();
+        } else {
+            cerrarPopupCookies();
+        }
+    }
+
+    function abrirPopupCookies() {
+
+        var cookiesPopup = $( '.cookies' );
+
+        cookiesPopup.css( 'display', 'flex' );
+        
+        setTimeout(() => {
+            cookiesPopup.css( 'opacity', '1' );
+        }, 1);
+    }
+
+    function cerrarPopupCookies( crearCookie = false ) {
+
+        var cookiesPopup = $( '.cookies' );
+
+        cookiesPopup.css( 'opacity', '' );
+
+        setTimeout(() => {
+            cookiesPopup.css( 'display', '' );
+        }, 500);
+
+        if ( crearCookie ) {
+            Cookies.set( 'aceptar-cookies', '1' )
+        }
+    }
 
     // ───────────── //
     //     ABOUT     //
