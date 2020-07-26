@@ -17,9 +17,9 @@ $laptop: 980px;
 
 // Placeholder
 
-::-webkit-input-placeholder { color: transparentize($blanco, .5); transition: .25s ease-in }
-     :-ms-input-placeholder { color: transparentize($blanco, .5); transition: .25s ease-in }
-              ::placeholder { color: transparentize($blanco, .5); transition: .25s ease-in }
+::-webkit-input-placeholder { color: $blanco; transition: .25s ease-in }
+     :-ms-input-placeholder { color: $blanco; transition: .25s ease-in }
+              ::placeholder { color: $blanco; transition: .25s ease-in }
 
 :focus::-webkit-input-placeholder { opacity: 0; }
      :focus:-ms-input-placeholder { opacity: 0; }
@@ -489,6 +489,18 @@ body {
             }
         }
     }
+
+    .datos-de-contacto {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        margin-left: 10px;
+
+        .email,
+        .telefono {
+            line-height: 25px;
+        }
+    }
 }
 
 @media (min-width: $laptop) {
@@ -502,6 +514,11 @@ body {
             padding: 75px 50px;
             margin-top: 150px;
             margin-left: 50px;
+        }
+
+        .datos-de-contacto {
+            margin-top: 15px;
+            margin-left: 60px;
         }
     }
 }
