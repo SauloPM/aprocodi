@@ -323,7 +323,6 @@ body {
     
                 &:before {
                     content: '';
-                    background: none;
                     border: 2px solid $blanco;
                     position: absolute;
                     top: -50px;
@@ -350,6 +349,10 @@ body {
                     .raya {
                         transform-origin: left;
                     }
+
+                    &:before {
+                        background: linear-gradient(to right, $fondo, transparent);
+                    }
                 }
             }
     
@@ -368,6 +371,10 @@ body {
     
                     .raya {
                         transform-origin: right;
+                    }
+
+                    &:before {
+                        background: linear-gradient(to left, $fondo, transparent);
                     }
                 }
             }
@@ -553,7 +560,7 @@ body {
         .item {
             display: flex;
             flex-direction: column;
-            background: $fondo;
+            background: linear-gradient(180deg, transparent, $fondo 75%);
             box-shadow: inset 0 0 0 2px $blanco;
             padding: 50px;
             margin: 0 auto;

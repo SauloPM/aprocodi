@@ -282,7 +282,6 @@ body:after {
   }
   #about .item .contenido:before {
     content: "";
-    background: none;
     border: 2px solid #ebebff;
     position: absolute;
     top: -50px;
@@ -306,6 +305,9 @@ body:after {
   #about .item:nth-child(odd) .contenido .raya {
     transform-origin: left;
   }
+  #about .item:nth-child(odd) .contenido:before {
+    background: linear-gradient(to right, #1e1e23, transparent);
+  }
   #about .item:nth-child(even) {
     flex-direction: row-reverse;
   }
@@ -320,6 +322,9 @@ body:after {
   }
   #about .item:nth-child(even) .contenido .raya {
     transform-origin: right;
+  }
+  #about .item:nth-child(even) .contenido:before {
+    background: linear-gradient(to left, #1e1e23, transparent);
   }
   #about .item:hover .imagen {
     transform: translateZ(50px);
@@ -464,7 +469,7 @@ body:after {
 #testimonios .carrusel .item {
   display: flex;
   flex-direction: column;
-  background: #1e1e23;
+  background: linear-gradient(180deg, transparent, #1e1e23 75%);
   box-shadow: inset 0 0 0 2px #ebebff;
   padding: 50px;
   margin: 0 auto;
