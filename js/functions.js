@@ -35,6 +35,10 @@ $( window ).on( 'load', function() {
         if ( ( $( this ).scrollTop() + ( alturaViewport / 2 ) ) >= $( '#contacto' ).position().top ) {
             $( '#contacto .raya' ).css( 'transform', 'scaleX(1)' );
         }
+
+        if ( ( $( this ).scrollTop() + ( alturaViewport / 2 ) ) >= $( '#testimonios' ).position().top ) {
+            $( '#testimonios .raya' ).css( 'transform', 'scaleX(1)' );
+        }
     }
 
     // ─────────────── //

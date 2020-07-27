@@ -465,6 +465,9 @@ body:after {
 }
 #testimonios .cabecera .raya {
   margin: 0 0 150px auto;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: 0.25s ease-in;
 }
 #testimonios .carrusel .item {
   display: flex;
