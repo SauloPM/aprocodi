@@ -357,8 +357,8 @@ body:after {
 #servicios .tarjetas {
   display: grid;
   grid-row-gap: 75px;
-  grid-column-gap: 75px;
-  grid-template-columns: auto auto auto;
+  grid-column-gap: 0;
+  grid-template-columns: auto;
   margin: 0 auto;
   width: fit-content;
 }
@@ -411,6 +411,17 @@ body:after {
   transform: perspective(1000px) rotateY(360deg);
 }
 
+@media (min-width: 768px) {
+  #servicios .tarjetas {
+    grid-column-gap: 75px;
+    grid-template-columns: auto auto;
+  }
+}
+@media (min-width: 1200px) {
+  #servicios .tarjetas {
+    grid-template-columns: auto auto auto;
+  }
+}
 #contacto {
   padding: 0 0 150px;
   margin: 0 auto;

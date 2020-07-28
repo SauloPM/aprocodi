@@ -6,9 +6,10 @@ $magenta: rgb(200,000,075);
 
 // Responsive breakpoints
 
-$mobile: 500px;
-$tablet: 768px;
-$laptop: 980px;
+$mobile : 500px;
+$tablet : 768px;
+$laptop : 980px;
+$desktop: 1200px;
 
 // Selección de texto
 
@@ -424,8 +425,8 @@ body {
     .tarjetas {
         display: grid;
         grid-row-gap: 75px;
-        grid-column-gap: 75px;
-        grid-template-columns: auto auto auto;
+        grid-column-gap: 0;
+        grid-template-columns: auto;
         margin: 0 auto;
         width: fit-content;
 
@@ -484,6 +485,21 @@ body {
                 transform: perspective(1000px) rotateY(360deg);
             }
         }
+    }
+}
+
+@media (min-width: $tablet) {
+
+    #servicios .tarjetas {
+        grid-column-gap: 75px;
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (min-width: $desktop) {
+
+    #servicios .tarjetas {
+        grid-template-columns: auto auto auto;
     }
 }
 
