@@ -4,18 +4,7 @@ $( window ).on( 'load', function() {
     new WOW( { mobile: false } ).init();
     
     // ParticlesJS inicialization
-    particlesJS.load( 'cuerpo', 'particles.json', function() {
-        console.log( 'callback - particles.js config loaded' );
-    });
-
-    // ─────────────── //
-    //     COOKIES     //
-    // ─────────────── //
-
-    // $( document ).on( 'click', '.cookies .enlace', function() {
-
-    //     $( '.cookies' ).fadeOut( 250 );
-    // });
+    particlesJS.load( 'cuerpo', 'particles.json', null);
 
     // ────────────── //
     //     SCROLL     //
@@ -31,6 +20,10 @@ $( window ).on( 'load', function() {
     function mostrarRaya() {
 
         let alturaViewport = window.innerHeight;
+
+        if ( ( $( this ).scrollTop() + ( alturaViewport / 2 ) ) >= $( '#servicios' ).position().top ) {
+            $( '#servicios .raya' ).css( 'transform', 'scaleX(1)' );
+        }
 
         if ( ( $( this ).scrollTop() + ( alturaViewport / 2 ) ) >= $( '#contacto' ).position().top ) {
             $( '#contacto .raya' ).css( 'transform', 'scaleX(1)' );
