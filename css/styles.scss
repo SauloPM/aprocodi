@@ -483,6 +483,7 @@ body {
 
             &:hover .cara.trasera {
                 transform: perspective(1000px) rotateY(360deg);
+                animation: .5s mostrar-fondo 1s forwards;
             }
         }
     }
@@ -501,6 +502,12 @@ body {
     #servicios .tarjetas {
         grid-template-columns: auto auto auto;
     }
+}
+
+@keyframes mostrar-fondo {
+
+    from { background: $fondo   }
+    to   { background: $magenta }
 }
 
 // ──────────────── //

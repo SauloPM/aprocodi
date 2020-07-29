@@ -409,6 +409,7 @@ body:after {
 }
 #servicios .tarjetas .tarjeta:hover .cara.trasera {
   transform: perspective(1000px) rotateY(360deg);
+  animation: 0.5s mostrar-fondo 1s forwards;
 }
 
 @media (min-width: 768px) {
@@ -420,6 +421,14 @@ body:after {
 @media (min-width: 1200px) {
   #servicios .tarjetas {
     grid-template-columns: auto auto auto;
+  }
+}
+@keyframes mostrar-fondo {
+  from {
+    background: #1e1e23;
+  }
+  to {
+    background: #c8004b;
   }
 }
 #contacto {
