@@ -4,6 +4,7 @@ $texto  : rgb(050,050,050);
 $fondo  : rgb(030,030,035);
 $blanco : rgb(255,255,255);
 $magenta: rgb(255,000,085);
+$violeta: rgb(065,075,245);
 $gris-claro: rgb(210,210,210);
 
 // Responsive breakpoints
@@ -497,7 +498,7 @@ body {
 // ───────────────── //
 
 #servicios {
-    background: rgb(65,75,245);
+    background: linear-gradient($violeta, darken( $violeta, 5% ));
     padding: 100px 25px;
     margin-bottom: 150px;
     position: relative;
@@ -511,11 +512,12 @@ body {
     .titulo-seccion {
 
         .titulo {
-            color: transparentize($blanco, .95);
+            color: transparentize($blanco, .75);
         }
 
         .subtitulo {
             color: rgb(35,40,205);
+            color: darken(rgb(65,75,245), 10%);
             text-shadow: 0px 0px 15px rgb(65,75,245);
         }
     }
@@ -538,6 +540,7 @@ body {
             .cara {
                 display: flex;
                 align-items: center;
+                box-shadow: 0px 10px 15px -10px darken($violeta, 50%);
                 padding: 75px 50px;
                 position: absolute;
                 top: 0;
@@ -550,29 +553,24 @@ body {
                 transition: 1s ease-in-out;
                 -webkit-backface-visibility: hidden;
 
-                &.frontal {
-                    background: $fondo;
-                    border: 2px solid rgb(35,40,205);
+                &.frontal h3 {
+                    color: $blanco;
+                    font-size: 25px;
+                    text-align: left;
+                    margin: 0;
+                    transform: perspective(1000px) translateZ(50px);
                 }
 
                 &.trasera {
-                    background: $fondo;
-                    border: 2px solid $blanco;
+                    background: linear-gradient( $violeta, darken( $violeta, 10% ));
                     transform: perspective(1000px) rotateY(180deg);
+
+                    p {
+                        color: $blanco;
+                        line-height: 25px;
+                        transform: perspective(1000px) translateZ(50px);
+                    }
                 }
-            }
-
-            h3 {
-                color: rgb(35,40,205);
-                font-size: 25px;
-                text-align: left;
-                margin: 0;
-                transform: perspective(1000px) translateZ(50px);
-            }
-
-            p {
-                line-height: 25px;
-                transform: perspective(1000px) translateZ(50px);
             }
 
             &:hover .cara.frontal {
@@ -581,8 +579,14 @@ body {
 
             &:hover .cara.trasera {
                 transform: perspective(1000px) rotateY(360deg);
-                animation: .25s mostrar-fondo 1s forwards;
             }
+
+            &:nth-child(1) .cara.frontal { background: linear-gradient( transparentize( $violeta, .1 ), transparentize( darken( $violeta, 10% ), .1 )), url(../img/1.jpg) center no-repeat; background-size: cover; }
+            &:nth-child(2) .cara.frontal { background: linear-gradient( transparentize( $violeta, .1 ), transparentize( darken( $violeta, 10% ), .1 )), url(../img/2.jpg) center no-repeat; background-size: cover; }
+            &:nth-child(3) .cara.frontal { background: linear-gradient( transparentize( $violeta, .1 ), transparentize( darken( $violeta, 10% ), .1 )), url(../img/3.jpg) center no-repeat; background-size: cover; }
+            &:nth-child(4) .cara.frontal { background: linear-gradient( transparentize( $violeta, .1 ), transparentize( darken( $violeta, 10% ), .1 )), url(../img/4.jpg) center no-repeat; background-size: cover; }
+            &:nth-child(5) .cara.frontal { background: linear-gradient( transparentize( $violeta, .1 ), transparentize( darken( $violeta, 10% ), .1 )), url(../img/8.jpg) center no-repeat; background-size: cover; }
+            &:nth-child(6) .cara.frontal { background: linear-gradient( transparentize( $violeta, .1 ), transparentize( darken( $violeta, 10% ), .1 )), url(../img/6.jpg) center no-repeat; background-size: cover; }
         }
     }
 }
@@ -604,12 +608,6 @@ body {
     #servicios .tarjetas {
         grid-template-columns: auto auto auto;
     }
-}
-
-@keyframes mostrar-fondo {
-
-    from { background: $fondo   }
-    to   { background: $magenta }
 }
 
 // ──────────────── //

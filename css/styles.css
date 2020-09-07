@@ -451,7 +451,7 @@ body canvas {
   }
 }
 #servicios {
-  background: #414bf5;
+  background: linear-gradient(#414bf5, #2934f4);
   padding: 100px 25px;
   margin-bottom: 150px;
   position: relative;
@@ -462,10 +462,11 @@ body canvas {
   transform: skewY(5deg);
 }
 #servicios .titulo-seccion .titulo {
-  color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.25);
 }
 #servicios .titulo-seccion .subtitulo {
   color: #2328cd;
+  color: #111df2;
   text-shadow: 0px 0px 15px #414bf5;
 }
 #servicios .tarjetas {
@@ -486,6 +487,7 @@ body canvas {
 #servicios .tarjetas .tarjeta .cara {
   display: flex;
   align-items: center;
+  box-shadow: 0px 10px 15px -10px #030634;
   padding: 75px 50px;
   position: absolute;
   top: 0;
@@ -498,23 +500,19 @@ body canvas {
   transition: 1s ease-in-out;
   -webkit-backface-visibility: hidden;
 }
-#servicios .tarjetas .tarjeta .cara.frontal {
-  background: #1e1e23;
-  border: 2px solid #2328cd;
-}
-#servicios .tarjetas .tarjeta .cara.trasera {
-  background: #1e1e23;
-  border: 2px solid white;
-  transform: perspective(1000px) rotateY(180deg);
-}
-#servicios .tarjetas .tarjeta h3 {
-  color: #2328cd;
+#servicios .tarjetas .tarjeta .cara.frontal h3 {
+  color: white;
   font-size: 25px;
   text-align: left;
   margin: 0;
   transform: perspective(1000px) translateZ(50px);
 }
-#servicios .tarjetas .tarjeta p {
+#servicios .tarjetas .tarjeta .cara.trasera {
+  background: linear-gradient(#414bf5, #111df2);
+  transform: perspective(1000px) rotateY(180deg);
+}
+#servicios .tarjetas .tarjeta .cara.trasera p {
+  color: white;
   line-height: 25px;
   transform: perspective(1000px) translateZ(50px);
 }
@@ -523,7 +521,30 @@ body canvas {
 }
 #servicios .tarjetas .tarjeta:hover .cara.trasera {
   transform: perspective(1000px) rotateY(360deg);
-  animation: 0.25s mostrar-fondo 1s forwards;
+}
+#servicios .tarjetas .tarjeta:nth-child(1) .cara.frontal {
+  background: linear-gradient(rgba(65, 75, 245, 0.9), rgba(17, 29, 242, 0.9)), url(../img/1.jpg) center no-repeat;
+  background-size: cover;
+}
+#servicios .tarjetas .tarjeta:nth-child(2) .cara.frontal {
+  background: linear-gradient(rgba(65, 75, 245, 0.9), rgba(17, 29, 242, 0.9)), url(../img/2.jpg) center no-repeat;
+  background-size: cover;
+}
+#servicios .tarjetas .tarjeta:nth-child(3) .cara.frontal {
+  background: linear-gradient(rgba(65, 75, 245, 0.9), rgba(17, 29, 242, 0.9)), url(../img/3.jpg) center no-repeat;
+  background-size: cover;
+}
+#servicios .tarjetas .tarjeta:nth-child(4) .cara.frontal {
+  background: linear-gradient(rgba(65, 75, 245, 0.9), rgba(17, 29, 242, 0.9)), url(../img/4.jpg) center no-repeat;
+  background-size: cover;
+}
+#servicios .tarjetas .tarjeta:nth-child(5) .cara.frontal {
+  background: linear-gradient(rgba(65, 75, 245, 0.9), rgba(17, 29, 242, 0.9)), url(../img/8.jpg) center no-repeat;
+  background-size: cover;
+}
+#servicios .tarjetas .tarjeta:nth-child(6) .cara.frontal {
+  background: linear-gradient(rgba(65, 75, 245, 0.9), rgba(17, 29, 242, 0.9)), url(../img/6.jpg) center no-repeat;
+  background-size: cover;
 }
 
 @media (min-width: 768px) {
@@ -538,14 +559,6 @@ body canvas {
 @media (min-width: 1200px) {
   #servicios .tarjetas {
     grid-template-columns: auto auto auto;
-  }
-}
-@keyframes mostrar-fondo {
-  from {
-    background: #1e1e23;
-  }
-  to {
-    background: #ff0055;
   }
 }
 #contacto {
