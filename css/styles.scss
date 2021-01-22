@@ -1,11 +1,8 @@
 // Colores
 
-$texto  : rgb(050,050,050);
 $fondo  : rgb(030,030,035);
-$blanco : rgb(255,255,255);
-$magenta: rgb(255,000,085);
-$violeta: rgb(065,075,245);
-$gris-claro: rgb(210,210,210);
+$blanco : rgb(235,235,255);
+$magenta: rgb(200,000,075);
 
 // Responsive breakpoints
 
@@ -31,9 +28,7 @@ $desktop: 1200px;
 
 // Scrollbar
 
-::-webkit-scrollbar {
-    width: 2px;
-}
+::-webkit-scrollbar { width: 2px }
   
 ::-webkit-scrollbar-track {
     background: $fondo;
@@ -53,14 +48,14 @@ $desktop: 1200px;
 
 * {
     box-sizing: border-box;
-    color: $texto;
+    color: $blanco;
     font-size: 14px;
     font-weight: 500;
     font-family: 'Roboto', 'Montserrat', sans-serif;
 }
 
 body {
-    padding: 0;
+    padding: 0 25px;
     margin: 0;
     overflow-y: hidden; // Spinner
 
@@ -71,6 +66,37 @@ body {
         width: 100%;
         height: 100%;
         z-index: 75;
+    }
+
+    .imagen-fondo {
+        content: '';
+        background-image: url(../img/fondo.jpg);
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+                filter: blur(3px);
+        -webkit-filter: blur(3px);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 25;
+        transition: .5s;
+    }
+
+    .overlay {
+        content: '';
+        background: $fondo;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 50;
+        opacity: .96;
+        transition: .5s;
     }
 }
 
@@ -94,70 +120,6 @@ body {
     }
 }
 
-.cabecera {
-    padding: 0 25px;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 950px;
-
-    .raya {
-        margin: 0 auto 150px 0;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: .25s ease-in;
-    }
-
-    &.derecha {
-
-        .titulo {
-            text-align: right;
-        }
-
-        .raya {
-            margin: 0 0 150px auto;
-            transform-origin: right;
-        }
-    }
-}
-
-.titulo-seccion {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 150px;;
-    position: relative;
-    width: 100%;
-    height: 110px;
-
-    .titulo {
-        color: transparentize($magenta, .95);
-        font-size: 150px;
-        text-align: center;
-        text-transform: uppercase;
-        font-weight: 900;
-        margin: 0;
-        letter-spacing: 5px;
-    }
-
-    .subtitulo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: $magenta;
-        font-size: 55px;
-        font-weight: 900;
-        text-transform: uppercase;
-        text-shadow: 0px 0px 15px $blanco;
-        letter-spacing: 4px;
-        margin: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-}
-
 // ─────────────── //
 //     PORTADA     //
 // ─────────────── //
@@ -168,7 +130,6 @@ body {
     justify-content: center;
     position: relative;
     height: 100vh;
-    overflow: hidden;
 
     .titulo {
         color: $blanco;
@@ -220,32 +181,6 @@ body {
                 background: $magenta;
             }
         }
-    }
-
-    &:before {
-        content: '';
-        background: url(../img/fondo.jpg) fixed center no-repeat;
-        background-size: cover;
-                filter: blur(3px);
-        -webkit-filter: blur(3px);
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 25;
-    }
-
-    &:after {
-        content: '';
-        background: $fondo;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 50;
-        opacity: .96;
     }
 }
 
@@ -303,13 +238,12 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 100px 25px;
+    padding: 100px 0;
     position: relative;
     z-index: 100;
-    overflow: hidden;
 
     .item {
-        box-shadow: 5px 5px 5px rgb(225,225,225);
+        border: 2px solid $blanco;
         cursor: pointer;
 
         .imagen {
@@ -330,12 +264,7 @@ body {
             max-width: 500px;
             height: auto;
 
-            .titulo {
-                color: $texto;
-            }
-
             .texto {
-                color: $texto;
                 line-height: 25px;
                 margin: 0;
             }
@@ -364,28 +293,6 @@ body {
             }
         }
     }
-
-    .cubo {
-        border: 1px solid $magenta;
-        position: absolute;
-        top: 80vh;
-        left: 45vw;
-        z-index: -1;
-        width: 10px;
-        height: 10px;
-        transform: scale(0) rotate(0);
-        transform-origin: center;
-        animation: aumentar 10s ease-in forwards infinite;
-        
-        &:nth-child(3)  { top: 40%; left: 25%; animation-delay: 0s }
-        &:nth-child(4)  { top: 50%; left: 80%; animation-delay: 1s }
-        &:nth-child(5)  { top: 10%; left: 90%; animation-delay: 2s }
-        &:nth-child(6)  { top: 85%; left: 10%; animation-delay: 3s }
-        &:nth-child(7)  { top: 10%; left: 50%; animation-delay: 4s }
-        &:nth-child(8)  { top: 90%; left: 95%; animation-delay: 5s }
-        &:nth-child(9)  { top: 25%; left: 10%; animation-delay: 6s }
-        &:nth-child(10) { top: 70%; left: 35%; animation-delay: 7s }
-    }
 }
 
 @media (min-width: $laptop) {
@@ -395,7 +302,7 @@ body {
 
         .item {
             display: flex;
-            box-shadow: none;
+            border: none;
             width: fit-content;
             transform-style: preserve-3d;
     
@@ -406,6 +313,7 @@ body {
                 height: 400px;
                 transform: translateZ(25px);
                 transition: .25s ease-in;
+                filter: grayscale(100%);
             }
     
             .contenido {
@@ -415,14 +323,13 @@ body {
                 height: 400px;
     
                 .raya {
-                    // transform: scaleX(0);
+                    transform: scaleX(0);
                     transition: .25s ease-in;
                 }
     
                 &:before {
                     content: '';
-                    background: $blanco;
-                    box-shadow: 2px 2px 5px $gris-claro;
+                    border: 2px solid $blanco;
                     position: absolute;
                     top: -50px;
                     left: 0;
@@ -437,7 +344,7 @@ body {
                 margin-bottom: 250px;
     
                 .imagen {
-                    box-shadow: 40px 0 80px -50px $gris-claro;
+                    box-shadow: 40px 0 80px -50px black;
                     left: 25px;
                 }
     
@@ -448,6 +355,10 @@ body {
                     .raya {
                         transform-origin: left;
                     }
+
+                    &:before {
+                        background: linear-gradient(to right, $fondo, transparent);
+                    }
                 }
             }
     
@@ -455,7 +366,7 @@ body {
                 flex-direction: row-reverse;
     
                 .imagen {
-                    box-shadow: -40px 0 80px -50px $gris-claro;
+                    box-shadow: -40px 0 80px -50px black;
                     left: -25px;
                 }
     
@@ -469,27 +380,23 @@ body {
                     }
 
                     &:before {
-                        box-shadow: -2px 2px 5px $gris-claro;
+                        background: linear-gradient(to left, $fondo, transparent);
                     }
                 }
             }
     
-            &:hover .imagen {
-                transform: translateZ(50px);
+            &:hover {
+    
+                .imagen {
+                    transform: translateZ(50px);
+                    filter: grayscale(0);
+                }
+    
+                .raya {
+                    transform: scaleX(1);
+                }
             }
         }
-    }
-}
-  
-@keyframes aumentar {
-
-    from {
-        opacity: 1;
-        transform: scale(0) rotate(0) 
-    }
-    to {
-        opacity: 0;
-        transform: scale(25) rotate(960deg) 
     }
 }
 
@@ -498,27 +405,25 @@ body {
 // ───────────────── //
 
 #servicios {
-    background: linear-gradient($violeta, darken( $violeta, 5% ));
-    padding: 100px 25px;
-    margin-bottom: 150px;
     position: relative;
     z-index: 100;
-    transform: skewY(-5deg);
 
-    .contenido {
-        transform: skewY(5deg);
-    }
-
-    .titulo-seccion {
+    .cabecera {
+        padding: 0 25px;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 950px;
 
         .titulo {
-            color: transparentize($blanco, .75);
+            text-align: right;
         }
 
-        .subtitulo {
-            color: rgb(35,40,205);
-            color: darken(rgb(65,75,245), 10%);
-            text-shadow: 0px 0px 15px rgb(65,75,245);
+        .raya {
+            background: rgb(0,255,175);
+            margin: 0 0 150px auto;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: .25s ease-in;
         }
     }
 
@@ -540,7 +445,6 @@ body {
             .cara {
                 display: flex;
                 align-items: center;
-                box-shadow: 0px 10px 15px -10px darken($violeta, 50%);
                 padding: 75px 50px;
                 position: absolute;
                 top: 0;
@@ -553,24 +457,29 @@ body {
                 transition: 1s ease-in-out;
                 -webkit-backface-visibility: hidden;
 
-                &.frontal h3 {
-                    color: $blanco;
-                    font-size: 25px;
-                    text-align: left;
-                    margin: 0;
-                    transform: perspective(1000px) translateZ(50px);
+                &.frontal {
+                    background: $fondo;
+                    border: 2px solid $blanco;
                 }
 
                 &.trasera {
-                    background: linear-gradient( $violeta, darken( $violeta, 10% ));
+                    background: $fondo;
+                    border: 2px solid $blanco;
                     transform: perspective(1000px) rotateY(180deg);
-
-                    p {
-                        color: $blanco;
-                        line-height: 25px;
-                        transform: perspective(1000px) translateZ(50px);
-                    }
                 }
+            }
+
+            h3 {
+                color: $blanco;
+                font-size: 25px;
+                text-align: left;
+                margin: 0;
+                transform: perspective(1000px) translateZ(50px);
+            }
+
+            p {
+                line-height: 25px;
+                transform: perspective(1000px) translateZ(50px);
             }
 
             &:hover .cara.frontal {
@@ -579,27 +488,17 @@ body {
 
             &:hover .cara.trasera {
                 transform: perspective(1000px) rotateY(360deg);
+                animation: .5s mostrar-fondo 1s forwards;
             }
-
-            &:nth-child(1) .cara.frontal { background: linear-gradient( transparentize( $violeta, .1 ), transparentize( darken( $violeta, 10% ), .1 )), url(../img/1.jpg) center no-repeat; background-size: cover; }
-            &:nth-child(2) .cara.frontal { background: linear-gradient( transparentize( $violeta, .1 ), transparentize( darken( $violeta, 10% ), .1 )), url(../img/2.jpg) center no-repeat; background-size: cover; }
-            &:nth-child(3) .cara.frontal { background: linear-gradient( transparentize( $violeta, .1 ), transparentize( darken( $violeta, 10% ), .1 )), url(../img/3.jpg) center no-repeat; background-size: cover; }
-            &:nth-child(4) .cara.frontal { background: linear-gradient( transparentize( $violeta, .1 ), transparentize( darken( $violeta, 10% ), .1 )), url(../img/4.jpg) center no-repeat; background-size: cover; }
-            &:nth-child(5) .cara.frontal { background: linear-gradient( transparentize( $violeta, .1 ), transparentize( darken( $violeta, 10% ), .1 )), url(../img/8.jpg) center no-repeat; background-size: cover; }
-            &:nth-child(6) .cara.frontal { background: linear-gradient( transparentize( $violeta, .1 ), transparentize( darken( $violeta, 10% ), .1 )), url(../img/6.jpg) center no-repeat; background-size: cover; }
         }
     }
 }
 
 @media (min-width: $tablet) {
 
-    #servicios {
-        padding: 200px 0;
-        
-        .tarjetas {
-            grid-column-gap: 75px;
-            grid-template-columns: auto auto;
-        }
+    #servicios .tarjetas {
+        grid-column-gap: 75px;
+        grid-template-columns: auto auto;
     }
 }
 
@@ -610,12 +509,18 @@ body {
     }
 }
 
+@keyframes mostrar-fondo {
+
+    from { background: $fondo   }
+    to   { background: $magenta }
+}
+
 // ──────────────── //
 //     CONTACTO     //
 // ──────────────── //
 
 #contacto {
-    padding: 0 0 150px;
+    padding: 150px 0 0;
     margin: 0 auto;
     position: relative;
     z-index: 100;
@@ -707,8 +612,8 @@ body {
             cursor: pointer;
 
             &:hover {
-                color: $magenta;
-                border-color: $magenta;
+                color: rgb(0,255,175);
+                border-color: rgb(0,255,175);
             }
         }
     }
@@ -729,7 +634,6 @@ body {
 @media (min-width: $laptop) {
 
     #contacto {
-        padding: 0 0 150px;
         max-width: 950px;
         
         .formulario {
@@ -751,16 +655,35 @@ body {
 // ─────────────────── //
 
 #testimonios {
-    padding-bottom: 150px;
+    padding: 150px 0;
+    margin: 0 -25px;
     position: relative;
     z-index: 100;
+
+    .cabecera {
+        padding: 0 25px;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 950px;
+
+        .titulo {
+            text-align: right;
+        }
+
+        .raya {
+            margin: 0 0 150px auto;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: .25s ease-in;
+        }
+    }
 
     .carrusel {
 
         .item {
             display: flex;
             flex-direction: column;
-            background: linear-gradient(180deg, transparent, $fondo 75%);
+            background: linear-gradient(180deg, transparent, transparentize( $fondo, .75) 75%);
             box-shadow: inset 0 0 0 2px $blanco;
             padding: 50px;
             margin: 0 auto;

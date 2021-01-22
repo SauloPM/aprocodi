@@ -80,6 +80,44 @@ $( window ).on( 'load', function() {
         }, 500);
     });
 
+    // ─────────────────────────────────────────────────────────────────── //
+    //     CAMBIAR EL COLOR Y LA IMAGEN DE FONDO AL CAMBIAR DE SECCIÓN     //
+    // ─────────────────────────────────────────────────────────────────── //
+
+    cambiarFondo();
+
+    $( document ).scroll( function() {
+        cambiarFondo();
+    });
+
+    // Function in charge of highlighting the current navigation bar item
+    function cambiarFondo() {
+
+        // Testimonios
+        if ( $( this ).scrollTop() >= $( '#testimonios' ).position().top ) {
+            $( '.overlay' ).css( 'background', 'rgba(100,0,255,.9)' );
+            $( '.imagen-fondo' ).css( 'background-image', 'url("img/fondo-testimonios.jpg")' );
+        }
+
+        // Contacto
+        else if ( $( this ).scrollTop() >= $( '#contacto' ).position().top ) {
+            $( '.overlay' ).css( 'background', 'rgba(0,45,255,.9)' );
+            $( '.imagen-fondo' ).css( 'background-image', 'url("img/fondo-contacto.jpg")' );
+        }
+
+        // Acerca de
+        else if ( $( this ).scrollTop() >= $( '#servicios' ).position().top ) {
+            $( '.overlay' ).css( 'background', 'rgba(0,45,255,.9)' );
+            $( '.imagen-fondo' ).css( 'background-image', 'url("img/fondo-servicios.jpg")' );
+        }
+
+        // Portada
+        else {
+            $( '.overlay' ).css( 'background', 'rgb(030,030,035)' );
+            $( '.imagen-fondo' ).css( 'background-image', 'url("img/fondo.jpg")' );
+        }
+    }
+
     // ─────────────── //
     //     COOKIES     //
     // ─────────────── //
